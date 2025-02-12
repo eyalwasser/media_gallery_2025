@@ -47,6 +47,7 @@
         "drupal/media_bulk_upload": "^3.0",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_tools": "^6.0",
+        "drupal/migrate_upgrade": "^4.0",
         "drupal/page_manager": "^4.0@RC",
         "drupal/panels": "^4.8",
         "drupal/plupload": "^2.2",

@@ -1,8 +1,0 @@
-<?php
-
-/**
- * Implements hook_install().
- */
-function d7_user_migration_install() {
-  \Drupal::service('module_installer')->install(['migrate', 'migrate_drupal', 'migrate_plus', 'migrate_tools']);
-}

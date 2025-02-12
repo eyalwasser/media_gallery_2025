@@ -1,6 +1,0 @@
-services:
-  migrate.source.d7_user:
-    class: Drupal\migrate_drupal\Plugin\migrate\source\d7\User
-    arguments: ['@database', '@logger.factory', '@migrate.lookup']
-    tags:
-      - { name: migrate.source }

@@ -892,7 +892,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
+$databases['default']['default'] = [
   'database' => 'eyal_drupal10',
   'username' => 'root',
   'password' => 'Admin@1234',
@@ -903,7 +903,16 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
+];
+$databases['migrate']['default'] = [
+   'database' => 'hdimagebank',
+   'username' => 'root',
+   'password' => 's2K7u93fFAMMjs',
+   'host' => '112.196.0.82',
+   'port' => '3316',
+   'driver' => 'mysql',
+   'prefix' => '',
+];
 $settings['config_sync_directory'] = 'config/sync/';
 
 /**

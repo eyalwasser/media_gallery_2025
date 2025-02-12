@@ -20,11 +20,18 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  migrate: 0
+  migrate_drupal: 0
+  migrate_drupal_ui: 0
+  migrate_plus: 0
+  migrate_tools: 0
+  migrate_upgrade: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
   path_alias: 0
+  phpass: 0
   responsive_image: 0
   robotstxt: 0
   syslog: 0
