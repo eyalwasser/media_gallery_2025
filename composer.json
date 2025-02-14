@@ -33,6 +33,7 @@
         "drupal/exclude_node_title": "^1.4",
         "drupal/facets": "^3.0",
         "drupal/feeds": "^3.0",
+        "drupal/feeds_tamper": "^2.0@beta",
         "drupal/field_group": "^3.6",
         "drupal/field_permissions": "^1.4",
         "drupal/filter_perms": "^2.0",
@@ -45,6 +46,7 @@
         "drupal/libraries": "^4.0",
         "drupal/masquerade": "^2.0",
         "drupal/media_bulk_upload": "^3.0",
+        "drupal/migrate_file": "^2.1",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_tools": "^6.0",
         "drupal/migrate_upgrade": "^4.0",
@@ -57,6 +59,7 @@
         "drupal/scheduler": "^2.2",
         "drupal/search_api": "^1.37",
         "drupal/shield": "^1.8",
+        "drupal/stage_file_proxy": "^3.1",
         "drupal/statistics": "^1.0",
         "drupal/stringoverrides": "^1.8",
         "drupal/tamper": "^1.0@alpha",
@@ -71,7 +74,7 @@
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
