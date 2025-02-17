@@ -1,0 +1,68 @@
+services:
+  drupal_app:
+    build: .
+    container_name: drupal_app_php
+    restart: always
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - drupal_db
+    env_file:
+     - .env
+    networks:
+      - app-network
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+
+  drupal_db:
+    image: mysql:8.0
+    container_name: ${DB_SERVER_CONTAINER}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-server
+    restart: always
+    ports:
+      - "8881:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - drupal_app
+    networks:
+      - app-network
+      
+  drupal_solr:
+    image: solr:8
+    ports:
+     - "8985:8983"
+    networks:
+      - app-network 
+    volumes:
+      - solr_data:/var/solr
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - mycore
+
+volumes:
+  mysql_data:
+  solr_data:
+    name: solr_data
+
+networks:
+  app-network:
+    driver: bridge

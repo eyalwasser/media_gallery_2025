@@ -24,18 +24,18 @@
  * 'sites/default' will be used.
  *
  * For example, for a fictitious site installed at
- * https://www.drupal.org:8080/my-site/test/, the 'settings.php' file is searched
+ * https://www.drupal.org:8080/mysite/test/, the 'settings.php' file is searched
  * for in the following directories:
  *
- * - sites/8080.www.drupal.org.my-site.test
- * - sites/www.drupal.org.my-site.test
- * - sites/drupal.org.my-site.test
- * - sites/org.my-site.test
+ * - sites/8080.www.drupal.org.mysite.test
+ * - sites/www.drupal.org.mysite.test
+ * - sites/drupal.org.mysite.test
+ * - sites/org.mysite.test
  *
- * - sites/8080.www.drupal.org.my-site
- * - sites/www.drupal.org.my-site
- * - sites/drupal.org.my-site
- * - sites/org.my-site
+ * - sites/8080.www.drupal.org.mysite
+ * - sites/www.drupal.org.mysite
+ * - sites/drupal.org.mysite
+ * - sites/org.mysite
  *
  * - sites/8080.www.drupal.org
  * - sites/www.drupal.org
@@ -46,8 +46,8 @@
  *
  * Note that if you are installing on a non-standard port number, prefix the
  * hostname with that number. For example,
- * https://www.drupal.org:8080/my-site/test/ could be loaded from
- * sites/8080.www.drupal.org.my-site.test/.
+ * https://www.drupal.org:8080/mysite/test/ could be loaded from
+ * sites/8080.www.drupal.org.mysite.test/.
  *
  * @see example.sites.php
  * @see \Drupal\Core\DrupalKernel::getSitePath()
@@ -77,9 +77,9 @@
  *
  * @code
  * $databases['default']['default'] = [
- *   'database' => 'database_name',
- *   'username' => 'sql_username',
- *   'password' => 'sql_password',
+ *   'database' => 'databasename',
+ *   'username' => 'sqlusername',
+ *   'password' => 'sqlpassword',
  *   'host' => 'localhost',
  *   'port' => '3306',
  *   'driver' => 'mysql',
@@ -181,8 +181,8 @@ $databases = [];
  *
  * WARNING: The above defaults are designed for database portability. Changing
  * them may cause unexpected behavior, including potential data loss. See
- * https://www.drupal.org/docs/8/api/database-api/database-configuration for
- * more information on these defaults and the potential issues.
+ * https://www.drupal.org/developing/api/database/configuration for more
+ * information on these defaults and the potential issues.
  *
  * More details can be found in the constructor methods for each driver:
  * - \Drupal\mysql\Driver\Database\mysql\Connection::__construct()
@@ -193,9 +193,9 @@ $databases = [];
  * @code
  *   $databases['default']['default'] = [
  *     'driver' => 'pgsql',
- *     'database' => 'database_name',
- *     'username' => 'sql_username',
- *     'password' => 'sql_password',
+ *     'database' => 'databasename',
+ *     'username' => 'sqlusername',
+ *     'password' => 'sqlpassword',
  *     'host' => 'localhost',
  *     'prefix' => '',
  *   ];
@@ -205,7 +205,7 @@ $databases = [];
  * @code
  *   $databases['default']['default'] = [
  *     'driver' => 'sqlite',
- *     'database' => '/path/to/database_filename',
+ *     'database' => '/path/to/databasefilename',
  *   ];
  * @endcode
  *
@@ -215,32 +215,11 @@ $databases = [];
  *     'driver' => 'my_driver',
  *     'namespace' => 'Drupal\my_module\Driver\Database\my_driver',
  *     'autoload' => 'modules/my_module/src/Driver/Database/my_driver/',
- *     'database' => 'database_name',
- *     'username' => 'sql_username',
- *     'password' => 'sql_password',
+ *     'database' => 'databasename',
+ *     'username' => 'sqlusername',
+ *     'password' => 'sqlpassword',
  *     'host' => 'localhost',
  *     'prefix' => '',
- *   ];
- * @endcode
- *
- * Sample Database configuration format for a driver that is extending another
- * database driver.
- * @code
- *   $databases['default']['default'] = [
- *     'driver' => 'my_driver',
- *     'namespace' => 'Drupal\my_module\Driver\Database\my_driver',
- *     'autoload' => 'modules/my_module/src/Driver/Database/my_driver/',
- *     'database' => 'database_name',
- *     'username' => 'sql_username',
- *     'password' => 'sql_password',
- *     'host' => 'localhost',
- *     'prefix' => '',
- *     'dependencies' => [
- *       'parent_module' => [
- *         'namespace' => 'Drupal\parent_module',
- *         'autoload' => 'core/modules/parent_module/src/',
- *       ],
- *     ],
  *   ];
  * @endcode
  */
@@ -286,7 +265,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'IPvicAB3UmxIA6zimo8XsL7Wn79f7BAfCRWPP9uMba7Ii6rBrJIZtDlkE9CPtNH3CJIjrbwo7w';
+$settings['hash_salt'] = 'y-coaG_jZj5nNrLbtCmcUr_W3L9QbVkhx4T5ioL9jrZT8mQx10ONly2T2yjBzCCXvZsANNQbow';
 
 /**
  * Deployment identifier.
@@ -355,13 +334,14 @@ $settings['update_free_access'] = FALSE;
  * security, or encryption benefits. In an environment where Drupal
  * is behind a reverse proxy, the real IP address of the client should
  * be determined such that the correct client IP address is available
- * to Drupal's logging and access management systems. In the most simple
- * scenario, the proxy server will add an X-Forwarded-For header to the request
- * that contains the client IP address. However, HTTP headers are vulnerable to
- * spoofing, where a malicious client could bypass restrictions by setting the
- * X-Forwarded-For header directly. Therefore, Drupal's proxy configuration
- * requires the IP addresses of all remote proxies to be specified in
- * $settings['reverse_proxy_addresses'] to work correctly.
+ * to Drupal's logging, statistics, and access management systems. In
+ * the most simple scenario, the proxy server will add an
+ * X-Forwarded-For header to the request that contains the client IP
+ * address. However, HTTP headers are vulnerable to spoofing, where a
+ * malicious client could bypass restrictions by setting the
+ * X-Forwarded-For header directly. Therefore, Drupal's proxy
+ * configuration requires the IP addresses of all remote proxies to be
+ * specified in $settings['reverse_proxy_addresses'] to work correctly.
  *
  * Enable this setting to get Drupal to determine the client IP from the
  * X-Forwarded-For header. If you are unsure about this setting, do not have a
@@ -497,15 +477,15 @@ $settings['update_free_access'] = FALSE;
  *
  * Remove the leading hash signs to disable.
  */
-# $settings['allow_authorize_operations'] = FALSE;
+$settings['allow_authorize_operations'] = FALSE;
 
 /**
  * Default mode for directories and files written by Drupal.
  *
  * Value should be in PHP Octal Notation, with leading zero.
  */
-# $settings['file_chmod_directory'] = 0775;
-# $settings['file_chmod_file'] = 0664;
+$settings['file_chmod_directory'] = 0775;
+$settings['file_chmod_file'] = 0664;
 
 /**
  * Optimized assets path:
@@ -587,7 +567,7 @@ $settings['update_free_access'] = FALSE;
  * the output of phpinfo(). The full output can contain sensitive information
  * so by default Drupal removes some sections.
  *
- * This behavior can be configured by setting this variable to a different
+ * This behaviour can be configured by setting this variable to a different
  * value corresponding to the flags parameter of phpinfo().
  *
  * If you need to expose more information in the report - for example to debug a
@@ -709,10 +689,12 @@ $settings['update_free_access'] = FALSE;
  */
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['user.settings']['anonymous'] = 'Visitor';
+$config['system.site']['mail'] = getenv('SMTP_USERNAME');
 
 /**
  * Load services definition file.
  */
+
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
@@ -730,8 +712,6 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * Provide a fully qualified class name here if you would like to provide an
  * alternate implementation YAML parser. The class must implement the
  * \Drupal\Component\Serialization\SerializationInterface interface.
- *
- * This setting is deprecated in Drupal 10.3 and removed in Drupal 11.
  */
 # $settings['yaml_parser_class'] = NULL;
 
@@ -799,145 +779,20 @@ $settings['file_scan_ignore_directories'] = [
  * larger number of entities to be processed in a single batch run.
  */
 $settings['entity_update_batch_size'] = 50;
-
-/**
- * Entity update backup.
- *
- * This is used to inform the entity storage handler that the backup tables as
- * well as the original entity type and field storage definitions should be
- * retained after a successful entity update process.
- */
-$settings['entity_update_backup'] = TRUE;
-
-/**
- * State caching.
- *
- * State caching uses the cache collector pattern to cache all requested keys
- * from the state API in a single cache entry, which can greatly reduce the
- * amount of database queries. However, some sites may use state with a
- * lot of dynamic keys which could result in a very large cache.
- */
-$settings['state_cache'] = TRUE;
-
-/**
- * Node migration type.
- *
- * This is used to force the migration system to use the classic node migrations
- * instead of the default complete node migrations. The migration system will
- * use the classic node migration only if there are existing migrate_map tables
- * for the classic node migrations and they contain data. These tables may not
- * exist if you are developing custom migrations and do not want to use the
- * complete node migrations. Set this to TRUE to force the use of the classic
- * node migrations.
- */
-$settings['migrate_node_migrate_type_classic'] = FALSE;
-
-/**
- * The default settings for migration sources.
- *
- * These settings are used as the default settings on the Credential form at
- * /upgrade/credentials.
- *
- * - migrate_source_version - The version of the source database. This can be
- *   '6' or '7'. Defaults to '7'.
- * - migrate_source_connection - The key in the $databases array for the source
- *   site.
- * - migrate_file_public_path - The location of the source Drupal 6 or Drupal 7
- *   public files. This can be a local file directory containing the source
- *   Drupal 6 or Drupal 7 site (e.g /var/www/docroot), or the site address
- *   (e.g http://example.com).
- * - migrate_file_private_path - The location of the source Drupal 7 private
- *   files. This can be a local file directory containing the source Drupal 7
- *   site (e.g /var/www/docroot), or empty to use the same value as Public
- *   files directory.
- *
- * Sample configuration for a drupal 6 source site with the source files in a
- * local directory.
- *
- * @code
- * $settings['migrate_source_version'] = '6';
- * $settings['migrate_source_connection'] = 'migrate';
- * $settings['migrate_file_public_path'] = '/var/www/drupal6';
- * @endcode
- *
- * Sample configuration for a drupal 7 source site with public source files on
- * the source site and the private files in a local directory.
- *
- * @code
- * $settings['migrate_source_version'] = '7';
- * $settings['migrate_source_connection'] = 'migrate';
- * $settings['migrate_file_public_path'] = 'https://drupal7.com';
- * $settings['migrate_file_private_path'] = '/var/www/drupal7';
- * @endcode
- */
-# $settings['migrate_source_connection'] = '';
-# $settings['migrate_source_version'] = '';
-# $settings['migrate_file_public_path'] = '';
-# $settings['migrate_file_private_path'] = '';
-
-/**
- * Load local development override configuration, if available.
- *
- * Create a settings.local.php file to override variables on secondary (staging,
- * development, etc.) installations of this site.
- *
- * Typical uses of settings.local.php include:
- * - Disabling caching.
- * - Disabling JavaScript/CSS compression.
- * - Rerouting outgoing emails.
- *
- * Keep this code block at the end of this file to take full effect.
- */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
-$databases['default']['default'] = [
-  'database' => 'eyal_drupal10',
-  'username' => 'root',
-  'password' => 'Admin@1234',
+$config['system.logging']['error_level'] = 'verbose';
+$databases['default']['default'] = array (
+  'database' => getenv('MYSQL_DATABASE'),
+  'username' => getenv('MYSQL_USER'),
+  'password' => getenv('MYSQL_PASSWORD'),
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => getenv('DB_SERVER_CONTAINER'),
   'port' => '3306',
   'isolation_level' => 'READ COMMITTED',
-  'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+  'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-];
-$databases['migrate']['default'] = [
-   'database' => 'hdimagebank',
-   'username' => 'root',
-   'password' => 's2K7u93fFAMMjs',
-   'host' => '112.196.0.82',
-   'port' => '3316',
-   'driver' => 'mysql',
-   'prefix' => '',
-];
-$settings['config_sync_directory'] = 'config/sync/';
+);
+$settings['config_sync_directory'] = 'config/sync';
 
-/**
- * Exclude modules from configuration synchronization.
- *
- * On config export sync, no config or dependent config of any excluded module
- * is exported. On config import sync, any config of any installed excluded
- * module is ignored. In the exported configuration, it will be as if the
- * excluded module had never been installed. When syncing configuration, if an
- * excluded module is already installed, it will not be uninstalled by the
- * configuration synchronization, and dependent configuration will remain
- * intact. This affects only configuration synchronization; single import and
- * export of configuration are not affected.
- *
- * Drupal does not validate or sanity check the list of excluded modules. For
- * instance, it is your own responsibility to never exclude required modules,
- * because it would mean that the exported configuration can not be imported
- * anymore.
- *
- * This is an advanced feature and using it means opting out of some of the
- * guarantees the configuration synchronization provides. It is not recommended
- * to use this feature with modules that affect Drupal in a major way such as
- * the language or field module.
- */
-if (file_exists($app_root . '/' . $site_path . '/settings.docker.php')) {
-  include $app_root . '/' . $site_path . '/settings.docker.php';
-}
-$settings['config_exclude_modules'] = ['search_api_solr_devel', 'devel', 'stage_file_proxy', 'admin_toolbar', 'admin_toolbar_search', 'admin_toolbar_tools', 'shield'];
+
+

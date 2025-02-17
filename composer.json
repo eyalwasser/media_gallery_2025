@@ -8,6 +8,12 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
+    "scripts": {
+        "post-update-cmd": [
+           "mkdir -p web/libraries/bootstrap",
+           "cp -R vendor/twbs/bootstrap/dist web/libraries/bootstrap"
+        ]
+    },
     "repositories": [
         {
             "type": "composer",
@@ -61,6 +67,7 @@
         "drupal/rules": "^4.0",
         "drupal/scheduler": "^2.2",
         "drupal/search_api": "^1.37",
+        "drupal/search_api_solr": "^4.3",
         "drupal/shield": "^1.8",
         "drupal/stage_file_proxy": "^3.1",
         "drupal/statistics": "^1.0",
