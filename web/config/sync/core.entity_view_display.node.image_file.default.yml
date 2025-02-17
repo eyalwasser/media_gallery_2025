@@ -1,0 +1,37 @@
+uuid: 9cd37001-9ae9-4e48-bc65-2eae70d22dd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_image_file.default
+    - field.field.node.image_file.comment_node_image_file
+    - field.field.node.image_file.field_file
+    - field.field.node.image_file.field_image_ref
+    - node.type.image_file
+  module:
+    - comment
+    - user
+id: node.image_file.default
+targetEntityType: node
+bundle: image_file
+mode: default
+content:
+  comment_node_image_file:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_file: true
+  field_image_ref: true
+  langcode: true
+  search_api_excerpt: true

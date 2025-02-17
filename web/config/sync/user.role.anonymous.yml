@@ -1,16 +1,16 @@
-uuid: c3dbad41-fb13-4584-bfa0-0496570c3a28
+uuid: 74803409-d3e0-45dd-b836-134f69840117
 langcode: en
 status: true
 dependencies:
   module:
-    - media
-    - system
+    - comment
+    - exclude_node_title
 _core:
-  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
-label: 'Anonymous user'
+label: 'anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'access content'
-  - 'view media'
+  - 'access comments'
+  - 'use exclude node title'

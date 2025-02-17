@@ -1,14 +1,14 @@
 _core:
-  default_config_hash: HlN7eAN2N4JIHsYv56V4E7sqC9bS609KwvGFjyD_mgk
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
 langcode: en
-uuid: 87cd3ccc-49b3-45a0-82a7-99c74a72f1fc
-name: 'Helen Doron Educational Group'
-mail: test.ckln@gmail.com
-slogan: hdimagebank
+uuid: 1082670e-5db6-4ec3-858c-d9a9f58e5c11
+name: 'Marketing Gallery'
+mail: MGNewuser@helendoron.com
+slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: '/user/login?destination=/recent-upload'
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

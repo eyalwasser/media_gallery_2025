@@ -1,28 +1,68 @@
 _core:
   default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
 module:
+  announcements_feed: 0
   automated_cron: 0
+  backup_migrate: 0
+  better_exposed_filters: 0
   big_pipe: 0
   block: 0
+  block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  comment: 0
+  config: 0
+  contact: 0
+  contextual: 0
+  csv_serialization: 0
+  ctools: 0
+  ctools_block: 0
+  ctools_entity_mask: 0
+  ctools_views: 0
+  dashboard: 0
+  date_popup: 0
   datetime: 0
-  datetime_range: 0
   dblog: 0
+  download_count: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
+  exclude_node_title: 0
+  facets: 0
+  feeds: 0
+  feeds_tamper: 0
   field: 0
+  field_group: 0
+  field_permissions: 0
+  field_ui: 0
   file: 0
   filter: 0
+  filter_perms: 0
+  fivestar: 0
+  flag: 0
+  genpass: 0
+  gin_login: 0
+  gin_toolbar: 0
+  google_analytics: 0
+  help: 0
+  history: 0
   image: 0
+  imce: 0
+  job_scheduler: 0
+  language: 0
+  layout_builder: 0
+  layout_discovery: 0
+  libraries: 0
   link: 0
+  masquerade: 0
   media: 0
-  media_library: 0
+  media_bulk_upload: 0
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
   migrate_drupal: 0
   migrate_drupal_ui: 0
+  migrate_file: 0
   migrate_plus: 0
   migrate_tools: 0
   migrate_upgrade: 0
@@ -30,20 +70,40 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  path: 0
   path_alias: 0
   phpass: 0
-  responsive_image: 0
-  robotstxt: 0
-  syslog: 0
+  plupload: 0
+  prepopulate: 0
+  rest: 0
+  scheduler: 0
+  search: 0
+  search_api: 0
+  search_api_solr: 0
+  serialization: 0
+  shortcut: 0
+  statistics: 0
+  stringoverrides: 0
   system: 0
+  tamper: 0
+  taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
+  update: 0
   user: 0
+  view_unpublished: 0
+  views_bulk_operations: 0
+  views_data_export: 0
   views_ui: 0
+  votingapi: 0
   views: 10
-  minimal: 1000
+  custom_search: 50
+  better_formats: 100
+  standard: 1000
 theme:
-  stark: 0
   olivero: 0
   claro: 0
-profile: minimal
+  gin: 0
+  bootstrap: 0
+profile: standard

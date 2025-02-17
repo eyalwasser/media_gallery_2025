@@ -1,0 +1,25 @@
+uuid: 1647f310-83c4-4685-b103-4afad6c46a0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.comments_recent
+  module:
+    - views
+  theme:
+    - olivero
+id: imagebank_comment_recent
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:comments_recent-block_1'
+settings:
+  id: 'views_block:comments_recent-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility: {  }

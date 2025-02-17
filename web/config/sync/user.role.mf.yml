@@ -1,0 +1,38 @@
+uuid: 00d53ef9-c607-4b5f-a87b-94985edafee5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+    - node.type.article
+    - node.type.page
+  module:
+    - filter
+    - node
+    - search
+    - search_api
+    - system
+    - taxonomy
+    - view_unpublished
+id: mf
+label: MF
+weight: 4
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access user profiles'
+  - 'administer search'
+  - 'administer search_api'
+  - 'administer taxonomy'
+  - 'administer users'
+  - 'cancel account'
+  - 'change own username'
+  - 'search content'
+  - 'select account cancellation method'
+  - 'use advanced search'
+  - 'use text format full_html'
+  - 'view any unpublished article content'
+  - 'view any unpublished content'
+  - 'view any unpublished page content'
+  - 'view own unpublished content'

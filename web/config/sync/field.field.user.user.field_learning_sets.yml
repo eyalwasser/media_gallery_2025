@@ -1,0 +1,27 @@
+uuid: 0b63cd83-fa2e-45d2-bf71-9b429666b8ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_learning_sets
+    - taxonomy.vocabulary.learning_sets
+  module:
+    - user
+id: user.user.field_learning_sets
+field_name: field_learning_sets
+entity_type: user
+bundle: user
+label: 'Learning Sets'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      learning_sets: learning_sets
+    sort:
+      field: _none
+field_type: entity_reference

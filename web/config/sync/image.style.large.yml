@@ -1,4 +1,4 @@
-uuid: 8022701c-6fd5-4590-b4e6-24a5d3703bf4
+uuid: eeaba820-1860-42b8-99a2-1d13b380f737
 langcode: en
 status: true
 dependencies: {  }
@@ -7,17 +7,11 @@ _core:
 name: large
 label: 'Large (480×480)'
 effects:
-  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
-    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+  907443fb-7b8a-4329-a32b-592d9041bf1c:
+    uuid: 907443fb-7b8a-4329-a32b-592d9041bf1c
     id: image_scale
     weight: 0
     data:
-      width: 480
-      height: 480
-      upscale: false
-  6e8fe467-84c1-4ef0-a73b-7eccf1cc20e8:
-    uuid: 6e8fe467-84c1-4ef0-a73b-7eccf1cc20e8
-    id: image_convert
-    weight: 2
-    data:
-      extension: webp
+      width: 618
+      height: 341
+      upscale: true

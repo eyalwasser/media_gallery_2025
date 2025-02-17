@@ -1,0 +1,105 @@
+uuid: fef75d84-6221-4216-91c6-4c62730a7779
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_simple_node
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Scheduler Data'
+migration_group: migrate_drupal_7
+label: 'Nodes (Simple Node Importer)'
+source:
+  plugin: d7_node
+  node_type: simple_node
+process:
+  nid:
+    -
+      plugin: get
+      source: tnid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  comment_node_simple_node/0/status:
+    -
+      plugin: get
+      source: comment
+  field_content_type:
+    -
+      plugin: get
+      source: field_content_type
+  field_upload_csv:
+    -
+      plugin: sub_process
+      source: field_upload_csv
+      process:
+        target_id: fid
+        display: display
+        description: description
+  publish_on:
+    -
+      plugin: get
+      source: scheduler_publish_on
+  unpublish_on:
+    -
+      plugin: get
+      source: scheduler_unpublish_on
+destination:
+  plugin: 'entity:node'
+  default_bundle: simple_node
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

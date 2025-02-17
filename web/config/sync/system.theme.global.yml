@@ -1,16 +1,19 @@
 _core:
-  default_config_hash: 3qY7PfXvJcCtBPQpb9FxxBgXtUGFzx8JVakfWiNNYzw
+  default_config_hash: KZiV2LB312xgJBphfq5BTjmp16xiR5KM8InBJ-pff7Y
 favicon:
   mimetype: image/vnd.microsoft.icon
-  path: ''
+  path: favicon.ico
   url: ''
-  use_default: true
+  use_default: false
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
-  node_user_picture: false
+  logo: true
+  name: true
+  node_user_picture: true
+  slogan: true
 logo:
-  path: ''
+  path: 'public://Group 19_0.png'
   url: null
-  use_default: true
+  use_default: false

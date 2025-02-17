@@ -1,0 +1,97 @@
+uuid: d9ce46d3-61a6-4758-99ce-c3a1ba026376
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_page
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node revisions (Basic page)'
+source:
+  plugin: d7_node_revision
+  node_type: page
+process:
+  nid:
+    -
+      plugin: get
+      source: nid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  comment_node_page/0/status:
+    -
+      plugin: get
+      source: comment
+  body:
+    -
+      plugin: get
+      source: body
+  field_ratingvo:
+    -
+      plugin: get
+      source: field_ratingvo
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: page
+migration_dependencies:
+  required:
+    - upgrade_d7_node_article
+    - upgrade_d7_node_documents
+    - upgrade_d7_node_image_file
+    - upgrade_d7_node_new
+    - upgrade_d7_node_node_id
+    - upgrade_d7_node_page
+    - upgrade_d7_node_panel
+    - upgrade_d7_node_simple_node
+    - upgrade_d7_node_thumb
+  optional: {  }

@@ -1,0 +1,9 @@
+uuid: 339551db-7be0-4e8a-8af3-09aafb5a1f88
+langcode: en
+status: true
+dependencies: {  }
+name: 'MF Users Type'
+vid: mf_users_type
+description: null
+weight: 0
+new_revision: false

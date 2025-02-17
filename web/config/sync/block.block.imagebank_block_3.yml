@@ -1,0 +1,25 @@
+uuid: bacab785-510e-4967-89c9-b59f7d700f3b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0d568bf8-511a-4db8-86fd-599c608eadb1'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: imagebank_block_3
+theme: olivero
+region: content
+weight: -26
+provider: null
+plugin: 'block_content:0d568bf8-511a-4db8-86fd-599c608eadb1'
+settings:
+  id: 'block_content:0d568bf8-511a-4db8-86fd-599c608eadb1'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

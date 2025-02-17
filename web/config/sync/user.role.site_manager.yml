@@ -1,0 +1,32 @@
+uuid: cfd32203-bf81-4bc4-bfab-bbc03671db9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - download_count
+    - filter
+    - fivestar
+    - masquerade
+    - node
+    - system
+    - taxonomy
+id: site_manager
+label: 'site manager'
+weight: 2
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access user profiles'
+  - 'administer permissions'
+  - 'administer taxonomy'
+  - 'administer users'
+  - 'cancel account'
+  - 'change own username'
+  - 'masquerade as super user'
+  - 'rate content'
+  - 'select account cancellation method'
+  - 'use text format full_html'
+  - 'view download counts'
+  - 'view own unpublished content'

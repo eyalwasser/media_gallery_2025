@@ -1,0 +1,14 @@
+uuid: a1d54257-56ee-462d-b049-f6935dc65e92
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mf
+  module:
+    - user
+id: user_remove_role_action.mf
+label: 'Remove the MF role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mf

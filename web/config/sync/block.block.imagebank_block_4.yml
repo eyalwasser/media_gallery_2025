@@ -1,0 +1,25 @@
+uuid: a6644945-a37d-405c-bb04-bbbed860ea10
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d9e18ba0-5971-46e9-ac08-8e4114c9439a'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: imagebank_block_4
+theme: olivero
+region: content
+weight: -25
+provider: null
+plugin: 'block_content:d9e18ba0-5971-46e9-ac08-8e4114c9439a'
+settings:
+  id: 'block_content:d9e18ba0-5971-46e9-ac08-8e4114c9439a'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

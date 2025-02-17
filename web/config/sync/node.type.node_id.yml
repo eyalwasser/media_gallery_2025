@@ -1,0 +1,20 @@
+uuid: 5d928ceb-2e7e-4385-8639-62ff50f5f8b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler: {  }
+name: 'node id'
+type: node_id
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,4 +1,4 @@
-uuid: aa33c6b4-7366-4c58-bbf9-148c30225c27
+uuid: dd0e506f-cf55-4e06-8950-5191dd20a6d8
 langcode: en
 status: true
 dependencies: {  }
@@ -7,17 +7,11 @@ _core:
 name: thumbnail
 label: 'Thumbnail (100×100)'
 effects:
-  1cfec298-8620-4749-b100-ccb6c4500779:
-    uuid: 1cfec298-8620-4749-b100-ccb6c4500779
+  020440b9-8423-47dd-980b-ffe66e90139c:
+    uuid: 020440b9-8423-47dd-980b-ffe66e90139c
     id: image_scale
     weight: 0
     data:
-      width: 100
-      height: 100
-      upscale: false
-  c4eb9942-2c9e-4a81-949f-6161a44b6559:
-    uuid: c4eb9942-2c9e-4a81-949f-6161a44b6559
-    id: image_convert
-    weight: 2
-    data:
-      extension: webp
+      width: 110
+      height: null
+      upscale: true

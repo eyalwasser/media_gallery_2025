@@ -1,0 +1,27 @@
+uuid: ffbe0e97-cccb-435e-bb5a-0aa46f5fdb2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - comment
+    - exclude_node_title
+    - filter
+    - node
+    - system
+    - taxonomy
+id: test
+label: TEST
+weight: 5
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'administer taxonomy'
+  - 'exclude any node title'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'use exclude node title'
+  - 'use text format full_html'
+  - 'view own unpublished content'

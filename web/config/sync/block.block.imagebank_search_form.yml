@@ -1,0 +1,31 @@
+uuid: 79c3bb43-590c-489c-af65-11654b5054cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - user
+  theme:
+    - olivero
+_core:
+  default_config_hash: yEBET0cqDbk8dkWzaJw-8CKft0961VBflsISoSR6Lj8
+id: imagebank_search_form
+theme: olivero
+region: content
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: ''
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

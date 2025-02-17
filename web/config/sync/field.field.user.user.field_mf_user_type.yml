@@ -1,0 +1,27 @@
+uuid: dae30a3f-7602-49f3-aff4-14ed04e0f8d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_mf_user_type
+    - taxonomy.vocabulary.mf_users_type
+  module:
+    - user
+id: user.user.field_mf_user_type
+field_name: field_mf_user_type
+entity_type: user
+bundle: user
+label: 'User Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mf_users_type: mf_users_type
+    sort:
+      field: _none
+field_type: entity_reference

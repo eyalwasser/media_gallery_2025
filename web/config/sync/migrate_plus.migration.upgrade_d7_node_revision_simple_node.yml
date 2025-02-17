@@ -1,0 +1,101 @@
+uuid: 04922c97-3cf4-430c-a60f-54e160ba3b44
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_simple_node
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node revisions (Simple Node Importer)'
+source:
+  plugin: d7_node_revision
+  node_type: simple_node
+process:
+  nid:
+    -
+      plugin: get
+      source: nid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  comment_node_simple_node/0/status:
+    -
+      plugin: get
+      source: comment
+  field_content_type:
+    -
+      plugin: get
+      source: field_content_type
+  field_upload_csv:
+    -
+      plugin: sub_process
+      source: field_upload_csv
+      process:
+        target_id: fid
+        display: display
+        description: description
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: simple_node
+migration_dependencies:
+  required:
+    - upgrade_d7_node_article
+    - upgrade_d7_node_documents
+    - upgrade_d7_node_image_file
+    - upgrade_d7_node_new
+    - upgrade_d7_node_node_id
+    - upgrade_d7_node_page
+    - upgrade_d7_node_panel
+    - upgrade_d7_node_simple_node
+    - upgrade_d7_node_thumb
+  optional: {  }

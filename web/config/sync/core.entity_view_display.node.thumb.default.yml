@@ -1,0 +1,61 @@
+uuid: 78b734eb-2a2f-4e91-b6e3-cde115918bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_thumb.default
+    - field.field.node.thumb.comment_node_thumb
+    - field.field.node.thumb.field_by_mf
+    - field.field.node.thumb.field_documents
+    - field.field.node.thumb.field_info
+    - field.field.node.thumb.field_item_number
+    - field.field.node.thumb.field_keywords
+    - field.field.node.thumb.field_learning_sets
+    - field.field.node.thumb.field_make_available_to_all_mfs
+    - field.field.node.thumb.field_marketing_materials
+    - field.field.node.thumb.field_media_type
+    - field.field.node.thumb.field_promotional_items
+    - field.field.node.thumb.field_qa
+    - field.field.node.thumb.field_stationery
+    - field.field.node.thumb.field_test
+    - field.field.node.thumb.field_thumbnail
+    - node.type.thumb
+  module:
+    - comment
+    - user
+id: node.thumb.default
+targetEntityType: node
+bundle: thumb
+mode: default
+content:
+  comment_node_thumb:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_by_mf: true
+  field_documents: true
+  field_info: true
+  field_item_number: true
+  field_keywords: true
+  field_learning_sets: true
+  field_make_available_to_all_mfs: true
+  field_marketing_materials: true
+  field_media_type: true
+  field_promotional_items: true
+  field_qa: true
+  field_stationery: true
+  field_test: true
+  field_thumbnail: true
+  langcode: true
+  search_api_excerpt: true

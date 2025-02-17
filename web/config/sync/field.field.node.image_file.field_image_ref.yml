@@ -1,0 +1,30 @@
+uuid: be2f1bb0-fa45-43c6-b8a2-d0f3d35aed0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_ref
+    - node.type.image_file
+    - node.type.thumb
+id: node.image_file.field_image_ref
+field_name: field_image_ref
+entity_type: node
+bundle: image_file
+label: Thumb
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      thumb: thumb
+    sort:
+      field: _none
+      direction: ASC
+    behaviors:
+      views-select-list:
+        status: 0
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: f521c929-f056-4e57-aa4c-bb53a8753cb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - olivero
+id: imagebank_user_login
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: '<none>'
+  label_display: '0'
+  provider: user
+visibility: {  }

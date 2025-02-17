@@ -1,4 +1,4 @@
-uuid: f655040e-f751-4758-b31e-86c5071ce006
+uuid: 13d8b7ff-330a-498b-b391-beee00de902f
 langcode: en
 status: true
 dependencies: {  }
@@ -12,18 +12,18 @@ filters:
     id: filter_autop
     provider: filter
     status: true
-    weight: 0
+    weight: 2
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: true
-    weight: -10
+    weight: 0
     settings: {  }
   filter_url:
     id: filter_url
     provider: filter
     status: true
-    weight: 0
+    weight: 1
     settings:
       filter_url_length: 72
