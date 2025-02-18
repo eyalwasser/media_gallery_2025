@@ -8,11 +8,13 @@ module:
   big_pipe: 0
   block: 0
   block_content: 0
+  bpmn_io: 0
   breakpoint: 0
   ckeditor5: 0
   comment: 0
   config: 0
   contact: 0
+  content_moderation: 0
   contextual: 0
   csv_serialization: 0
   ctools: 0
@@ -25,6 +27,24 @@ module:
   dblog: 0
   download_count: 0
   dynamic_page_cache: 0
+  eca: 0
+  eca_access: 0
+  eca_base: 0
+  eca_cache: 0
+  eca_config: 0
+  eca_content: 0
+  eca_endpoint: 0
+  eca_file: 0
+  eca_log: 0
+  eca_migrate: 0
+  eca_misc: 0
+  eca_modeller_bpmn: 0
+  eca_queue: 0
+  eca_render: 0
+  eca_ui: 0
+  eca_user: 0
+  eca_views: 0
+  eca_workflow: 0
   editor: 0
   entity: 0
   exclude_node_title: 0
@@ -97,6 +117,8 @@ module:
   views_data_export: 0
   views_ui: 0
   votingapi: 0
+  workflows: 0
+  eca_form: 1
   views: 10
   custom_search: 50
   better_formats: 100

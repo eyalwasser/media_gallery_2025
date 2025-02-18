@@ -1,0 +1,87 @@
+uuid: d7d418cd-8cb8-423c-a827-bdcbda52214f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eca.eca.process_k8vb4v3
+id: process_k8vb4v3
+label: 'redirect to bulk upload'
+tags:
+  - ''
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_k8vb4v3" name="redirect to bulk upload" isExecutable="true">
+      <bpmn2:extensionElements />
+      <bpmn2:startEvent id="Event_1cdifvy" name="Content Save Event" camunda:modelerTemplate="org.drupal.event.content_entity:insert">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="content_entity:insert" />
+          </camunda:properties>
+          <camunda:field name="type">
+            <camunda:string>node thumb</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_0vfx945</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="Flow_0vfx945" sourceRef="Event_1cdifvy" targetRef="Activity_19uukjt" />
+      <bpmn2:task id="Activity_19uukjt" name="Redirect to Bulk Upload" camunda:modelerTemplate="org.drupal.action.action_goto_action">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="action_goto_action" />
+          </camunda:properties>
+          <camunda:field name="url">
+            <camunda:string>admin/content/media/bulk_upload?edit[default_values][field_image_ref][und]=[node:nid]</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0vfx945</bpmn2:incoming>
+        <bpmn2:incoming>Flow_0gt79ir</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:startEvent id="Event_1r8f6mz" name="Content UpdateEvent" camunda:modelerTemplate="org.drupal.event.content_entity:update">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="content_entity:update" />
+          </camunda:properties>
+          <camunda:field name="type">
+            <camunda:string>node thumb</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_0gt79ir</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="Flow_0gt79ir" sourceRef="Event_1r8f6mz" targetRef="Activity_19uukjt" />
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-93719819-f145-4ebc-bff1-f8662549c79e">
+      <bpmndi:BPMNPlane id="sid-72cbf284-9ef2-4129-812b-e36cf06774dd" bpmnElement="Process_k8vb4v3">
+        <bpmndi:BPMNShape id="Event_1cdifvy_di" bpmnElement="Event_1cdifvy">
+          <dc:Bounds x="352" y="102" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="337" y="145" width="67" height="27" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Event_1r8f6mz_di" bpmnElement="Event_1r8f6mz">
+          <dc:Bounds x="352" y="212" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="338" y="255" width="65" height="27" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_19uukjt_di" bpmnElement="Activity_19uukjt">
+          <dc:Bounds x="480" y="80" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_0vfx945_di" bpmnElement="Flow_0vfx945">
+          <di:waypoint x="388" y="120" />
+          <di:waypoint x="480" y="120" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0gt79ir_di" bpmnElement="Flow_0gt79ir">
+          <di:waypoint x="388" y="230" />
+          <di:waypoint x="530" y="230" />
+          <di:waypoint x="530" y="160" />
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

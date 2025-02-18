@@ -1,0 +1,33 @@
+uuid: 62521c1c-03cf-4694-81ea-bf6c7702cb5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_content
+    - eca_user
+id: process_hfk1xxi
+modeller: bpmn_io
+label: 'Set MF reference for himself'
+version: ''
+weight: null
+events: {  }
+conditions:
+  Flow_0vwhwba:
+    plugin: eca_current_user_role
+    configuration:
+      negate: false
+      role: mf
+gateways: {  }
+actions:
+  Activity_1a8bjsc:
+    plugin: eca_set_field_value
+    label: 'Set a MF parent value'
+    configuration:
+      field_name: field_mf_parent
+      field_value: '[user:field_mf_parent]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: ''
+    successors: {  }

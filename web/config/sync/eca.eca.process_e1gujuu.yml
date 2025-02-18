@@ -1,0 +1,89 @@
+uuid: 031b355f-b9ae-4443-9d21-84d28f2f61e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_country
+    - field.field.user.user.field_learning_sets
+    - field.field.user.user.field_mf_parent
+    - field.storage.user.field_country
+    - field.storage.user.field_learning_sets
+    - field.storage.user.field_mf_parent
+  module:
+    - eca_content
+    - eca_user
+id: process_e1gujuu
+modeller: bpmn_io
+label: 'set conf new user by MF'
+version: ''
+weight: null
+events:
+  Event_1aqjnop:
+    plugin: 'user:set_user'
+    label: 'current user'
+    configuration: {  }
+    successors:
+      -
+        id: Gateway_1veo91p
+        condition: Flow_0wmrshc
+conditions:
+  Flow_0wmrshc:
+    plugin: eca_current_user_role
+    configuration:
+      negate: false
+      role: mf
+  Flow_1j44eax:
+    plugin: eca_current_user_role
+    configuration:
+      negate: false
+      role: mf
+gateways:
+  Gateway_1veo91p:
+    type: 0
+    successors:
+      -
+        id: Activity_05fytad
+        condition: Flow_1j44eax
+      -
+        id: Activity_1jsv7uy
+        condition: ''
+      -
+        id: Activity_1b9rsi6
+        condition: ''
+actions:
+  Activity_05fytad:
+    plugin: eca_set_field_value
+    label: 'Set MF parent value'
+    configuration:
+      field_name: field_mf_parent
+      field_value: '[user:field_mf_parent]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: ''
+    successors: {  }
+  Activity_1jsv7uy:
+    plugin: eca_set_field_value
+    label: 'Set Learning Sets value'
+    configuration:
+      field_name: field_learning_sets
+      field_value: '[user:field_learning_sets]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: ''
+    successors: {  }
+  Activity_1b9rsi6:
+    plugin: eca_set_field_value
+    label: 'Set Country value'
+    configuration:
+      field_name: field_country
+      field_value: ''
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: '[user:field_country]'
+    successors: {  }
