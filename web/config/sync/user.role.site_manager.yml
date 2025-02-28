@@ -8,6 +8,7 @@ dependencies:
     - download_count
     - filter
     - fivestar
+    - flag
     - masquerade
     - node
     - system
@@ -19,14 +20,22 @@ is_admin: null
 permissions:
   - 'access content'
   - 'access user profiles'
+  - 'administer flaggings'
+  - 'administer flags'
   - 'administer permissions'
   - 'administer taxonomy'
   - 'administer users'
   - 'cancel account'
   - 'change own username'
+  - 'flag local_show_lc'
+  - 'flag local_show_lc other items'
+  - 'flag local_show_lc own items'
   - 'masquerade as super user'
   - 'rate content'
   - 'select account cancellation method'
+  - 'unflag local_show_lc'
+  - 'unflag local_show_lc other items'
+  - 'unflag local_show_lc own items'
   - 'use text format full_html'
   - 'view download counts'
   - 'view own unpublished content'

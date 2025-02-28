@@ -1,0 +1,15 @@
+uuid: 022be34b-db1c-456f-a885-7a9e1822db16
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.local_show_lc
+  module:
+    - flag
+id: flag_action.local_show_lc_flag
+label: 'local show'
+type: node
+plugin: 'flag_action:local_show_lc_flag'
+configuration:
+  flag_id: local_show_lc
+  flag_action: flag

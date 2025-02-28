@@ -1,0 +1,15 @@
+uuid: eeb9c0f1-c0b5-4208-abf6-75acd2faf34e
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.show_my_users
+  module:
+    - flag
+id: flag_action.show_my_users_flag
+label: 'Remove Local'
+type: node
+plugin: 'flag_action:show_my_users_flag'
+configuration:
+  flag_id: show_my_users
+  flag_action: flag

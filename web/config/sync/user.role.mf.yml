@@ -7,7 +7,9 @@ dependencies:
     - node.type.article
     - node.type.page
   module:
+    - content_moderation
     - filter
+    - flag
     - node
     - search
     - search_api
@@ -22,14 +24,22 @@ permissions:
   - 'access content'
   - 'access content overview'
   - 'access user profiles'
+  - 'administer flaggings'
+  - 'administer flags'
   - 'administer search'
   - 'administer search_api'
   - 'administer taxonomy'
   - 'administer users'
   - 'cancel account'
   - 'change own username'
+  - 'flag local_show_lc'
+  - 'flag local_show_lc other items'
+  - 'flag local_show_lc own items'
   - 'search content'
   - 'select account cancellation method'
+  - 'unflag local_show_lc'
+  - 'unflag local_show_lc other items'
+  - 'unflag local_show_lc own items'
   - 'use advanced search'
   - 'use text format full_html'
   - 'view any unpublished article content'

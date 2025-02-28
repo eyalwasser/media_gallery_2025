@@ -1,0 +1,30 @@
+uuid: 8f59df90-3415-45e3-9bd1-f1540f8f759c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: local_show_lc
+label: local_show_lc
+bundles:
+  - thumb
+entity_type: node
+global: false
+flag_short: 'local show'
+flag_long: "Unhide from your LCF's"
+flag_message: "The item will be available for your LCF's"
+unflag_short: 'local hide'
+unflag_long: "Hide from your LCF's "
+unflag_message: "The item will not be available for your LCF's"
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: true
+  show_contextual_link: true
+  extra_permissions:
+    owner: owner
+linkTypeConfig: {  }
