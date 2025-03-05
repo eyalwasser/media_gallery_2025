@@ -18,16 +18,7 @@ process:
   nid:
     -
       plugin: migration_lookup
-      migration:
-        - upgrade_d7_node_article
-        - upgrade_d7_node_documents
-        - upgrade_d7_node_image_file
-        - upgrade_d7_node_new
-        - upgrade_d7_node_node_id
-        - upgrade_d7_node_page
-        - upgrade_d7_node_panel
-        - upgrade_d7_node_simple_node
-        - upgrade_d7_node_thumb
+      migration: {  }
       source: nid
     -
       plugin: node_complete_node_lookup
@@ -50,22 +41,4 @@ destination:
   plugin: node_counter
 migration_dependencies:
   required: {  }
-  optional:
-    - upgrade_d7_node_article
-    - upgrade_d7_node_documents
-    - upgrade_d7_node_image_file
-    - upgrade_d7_node_new
-    - upgrade_d7_node_node_id
-    - upgrade_d7_node_page
-    - upgrade_d7_node_panel
-    - upgrade_d7_node_simple_node
-    - upgrade_d7_node_thumb
-    - upgrade_d7_node_article
-    - upgrade_d7_node_documents
-    - upgrade_d7_node_image_file
-    - upgrade_d7_node_new
-    - upgrade_d7_node_node_id
-    - upgrade_d7_node_page
-    - upgrade_d7_node_panel
-    - upgrade_d7_node_simple_node
-    - upgrade_d7_node_thumb
+  optional: {  }

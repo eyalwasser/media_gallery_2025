@@ -38,7 +38,7 @@ content:
     region: content
   user_picture:
     type: image_image
-    weight: -1
+    weight: 7
     region: content
     settings:
       progress_indicator: throbber

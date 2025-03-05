@@ -10,6 +10,7 @@ dependencies:
     - node.type.image_file
   module:
     - comment
+    - file
     - user
 id: node.image_file.default
 targetEntityType: node
@@ -23,15 +24,33 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 20
+    weight: 0
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_image_ref:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
+    region: content
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
-  field_file: true
-  field_image_ref: true
   langcode: true
-  search_api_excerpt: true

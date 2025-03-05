@@ -31,16 +31,7 @@ process:
   entity_id:
     -
       plugin: migration_lookup
-      migration:
-        - upgrade_d7_node_article
-        - upgrade_d7_node_documents
-        - upgrade_d7_node_image_file
-        - upgrade_d7_node_new
-        - upgrade_d7_node_node_id
-        - upgrade_d7_node_page
-        - upgrade_d7_node_panel
-        - upgrade_d7_node_simple_node
-        - upgrade_d7_node_thumb
+      migration: {  }
       source: nid
     -
       plugin: node_complete_node_lookup
@@ -116,34 +107,7 @@ destination:
   plugin: 'entity:comment'
 migration_dependencies:
   required:
-    - upgrade_d7_node_article
-    - upgrade_d7_node_documents
-    - upgrade_d7_node_image_file
-    - upgrade_d7_node_new
-    - upgrade_d7_node_node_id
-    - upgrade_d7_node_page
-    - upgrade_d7_node_panel
-    - upgrade_d7_node_simple_node
-    - upgrade_d7_node_thumb
     - upgrade_d7_comment_type
   optional:
     - upgrade_d7_comment
-    - upgrade_d7_node_article
-    - upgrade_d7_node_documents
-    - upgrade_d7_node_image_file
-    - upgrade_d7_node_new
-    - upgrade_d7_node_node_id
-    - upgrade_d7_node_page
-    - upgrade_d7_node_panel
-    - upgrade_d7_node_simple_node
-    - upgrade_d7_node_thumb
     - upgrade_d7_comment_type
-    - upgrade_d7_node_article
-    - upgrade_d7_node_documents
-    - upgrade_d7_node_image_file
-    - upgrade_d7_node_new
-    - upgrade_d7_node_node_id
-    - upgrade_d7_node_page
-    - upgrade_d7_node_panel
-    - upgrade_d7_node_simple_node
-    - upgrade_d7_node_thumb

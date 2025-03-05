@@ -22,6 +22,7 @@ dependencies:
     - node.type.thumb
   module:
     - comment
+    - image
     - user
 id: node.thumb.default
 targetEntityType: node
@@ -35,27 +36,150 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 20
+    weight: 1
+    region: content
+  field_by_mf:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_documents:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_info:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_item_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_learning_sets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_make_available_to_all_mfs:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_marketing_materials:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_media_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_promotional_items:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_qa:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_stationery:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_test:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  flag_local_show_lc:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  langcode:
+    type: language
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
-hidden:
-  field_by_mf: true
-  field_documents: true
-  field_info: true
-  field_item_number: true
-  field_keywords: true
-  field_learning_sets: true
-  field_make_available_to_all_mfs: true
-  field_marketing_materials: true
-  field_media_type: true
-  field_promotional_items: true
-  field_qa: true
-  field_stationery: true
-  field_test: true
-  field_thumbnail: true
-  langcode: true
-  search_api_excerpt: true
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
+    region: content
+hidden: {  }
