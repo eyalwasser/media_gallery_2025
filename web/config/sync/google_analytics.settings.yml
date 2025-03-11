@@ -1,6 +1,6 @@
 _core:
   default_config_hash: dwMYPgAnj9KBO77SLEv9Z42NDJAbuxe0uU9eGC8qw3M
-account: ''
+account: UA-48834833-1
 domain_mode: 0
 cross_domains: ''
 visibility:
@@ -14,7 +14,7 @@ visibility:
     /user/*/*
   user_role_mode: 0
   user_role_roles: {  }
-  user_account_mode: 1
+  user_account_mode: 0
 track:
   outbound: true
   mailto: true
@@ -25,12 +25,15 @@ track:
   linkid: false
   urlfragments: false
   userid: false
-  messages: {  }
+  messages:
+    status: '0'
+    warning: '0'
+    error: '0'
   site_search: false
   adsense: false
-  displayfeatures: true
+  displayfeatures: false
 privacy:
-  anonymizeip: true
+  anonymizeip: false
 custom:
   parameters: {  }
 codesnippet:
@@ -38,5 +41,5 @@ codesnippet:
   before: ''
   after: ''
 translation_set: false
-cache: false
+cache: true
 debug: false

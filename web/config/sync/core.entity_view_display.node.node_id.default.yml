@@ -21,7 +21,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 0
     region: content
   comment_node_node_id:
     type: comment_default

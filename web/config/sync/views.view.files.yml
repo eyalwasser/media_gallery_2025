@@ -812,6 +812,7 @@ display:
       defaults:
         pager: true
         relationships: false
+        header: false
       relationships:
         fid:
           id: fid
@@ -822,6 +823,17 @@ display:
           admin_label: 'File usage'
           required: false
       display_description: ''
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       display_extenders: {  }
       path: admin/content/files
       menu:

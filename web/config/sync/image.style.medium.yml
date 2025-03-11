@@ -7,8 +7,8 @@ _core:
 name: medium
 label: 'Medium (220×220)'
 effects:
-  649ae482-daef-4cb8-a01b-27143da7ba76:
-    uuid: 649ae482-daef-4cb8-a01b-27143da7ba76
+  eb6b1f79-37ac-4445-adfa-a1e151746dac:
+    uuid: eb6b1f79-37ac-4445-adfa-a1e151746dac
     id: image_scale
     weight: 2
     data:

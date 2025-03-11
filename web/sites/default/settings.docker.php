@@ -792,7 +792,23 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
+$databases['migrate']['default'] = [
+  'database' => 'hdimagebank',
+  'username' => 'root',
+  'password' => 's2K7u93fFAMMjs',
+  'host' => '112.196.0.82',
+  'port' => '3316',
+  'driver' => 'mysql',
+  'prefix' => '',
+];
 $settings['config_sync_directory'] = 'config/sync';
 
-
-
+$config['search_api.server.solr'] = [
+  'backend_config' => [
+      'connector' => 'standard',
+      'scheme' => 'http',
+      'host' => 'solr', // Should match service name in docker-compose
+      'port' => '8983',
+      'path' => '/solr/mycore',
+  ],
+];

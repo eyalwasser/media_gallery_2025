@@ -18,6 +18,38 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_learning_sets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_mf_parent:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_mf_user_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
   masquerade:
     settings: {  }
     third_party_settings: {  }
@@ -35,12 +67,8 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 51
+    weight: 52
     region: content
 hidden:
-  field_country: true
-  field_learning_sets: true
-  field_mf_parent: true
-  field_mf_user_type: true
   langcode: true
   search_api_excerpt: true

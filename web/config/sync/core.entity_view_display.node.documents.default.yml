@@ -11,6 +11,7 @@ dependencies:
     - node.type.documents
   module:
     - comment
+    - file
     - user
 id: node.documents.default
 targetEntityType: node
@@ -26,14 +27,35 @@ content:
     third_party_settings: {  }
     weight: 20
     region: content
+  field_document_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_documents_types:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_learning_sets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
-  field_document_file: true
-  field_documents_types: true
-  field_learning_sets: true
   langcode: true
   search_api_excerpt: true

@@ -2,9 +2,13 @@ uuid: 74803409-d3e0-45dd-b836-134f69840117
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.filtered_html
   module:
     - comment
     - exclude_node_title
+    - field_permissions
+    - filter
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
@@ -13,4 +17,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access comments'
+  - 'create field_mf_user_type'
   - 'use exclude node title'
+  - 'use text format filtered_html'

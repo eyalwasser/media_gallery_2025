@@ -5,8 +5,8 @@ dependencies: {  }
 name: my_media
 label: null
 effects:
-  984dd9ff-d6ab-487c-b920-25065027ae3e:
-    uuid: 984dd9ff-d6ab-487c-b920-25065027ae3e
+  eaf4a3b1-61c7-4ea8-82d1-856c425c3010:
+    uuid: eaf4a3b1-61c7-4ea8-82d1-856c425c3010
     id: image_scale
     weight: 2
     data:

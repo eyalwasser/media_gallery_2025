@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.node_id.comment_node_node_id
     - node.type.node_id
   module:
+    - comment
     - path
     - text
 id: node.node_id.default
@@ -16,13 +17,19 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: -4
     region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  comment_node_node_id:
+    type: comment_default
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   created:
     type: datetime_timestamp
@@ -83,6 +90,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  comment_node_node_id: true
   publish_on: true
   unpublish_on: true

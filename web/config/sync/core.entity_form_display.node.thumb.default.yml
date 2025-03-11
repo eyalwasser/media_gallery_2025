@@ -21,6 +21,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.thumb
   module:
+    - comment
     - image
     - path
 id: node.thumb.default
@@ -28,6 +29,12 @@ targetEntityType: node
 bundle: thumb
 mode: default
 content:
+  comment_node_thumb:
+    type: comment_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 3
@@ -36,40 +43,36 @@ content:
     third_party_settings: {  }
   field_by_mf:
     type: boolean_checkbox
-    weight: 11
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_documents:
-    type: entity_reference_autocomplete
-    weight: 23
+    type: options_buttons
+    weight: 12
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_info:
     type: string_textarea
-    weight: 22
+    weight: 3
     region: content
     settings:
-      rows: 5
+      rows: 7
       placeholder: ''
     third_party_settings: {  }
   field_item_number:
     type: string_textfield
-    weight: 10
+    weight: 1
     region: content
     settings:
-      size: 60
+      size: 8
       placeholder: ''
     third_party_settings: {  }
   field_keywords:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -78,82 +81,58 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_learning_sets:
-    type: entity_reference_autocomplete
-    weight: 20
+    type: options_buttons
+    weight: 5
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_make_available_to_all_mfs:
     type: boolean_checkbox
-    weight: 19
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_marketing_materials:
-    type: entity_reference_autocomplete
-    weight: 18
+    type: options_buttons
+    weight: 8
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_media_type:
-    type: entity_reference_autocomplete
-    weight: 17
+    type: options_buttons
+    weight: 6
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_promotional_items:
-    type: entity_reference_autocomplete
-    weight: 16
+    type: options_buttons
+    weight: 9
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_qa:
     type: boolean_checkbox
-    weight: 15
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_stationery:
-    type: entity_reference_autocomplete
-    weight: 14
+    type: options_buttons
+    weight: 11
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_test:
-    type: entity_reference_autocomplete
-    weight: 13
+    type: options_select
+    weight: 16
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_thumbnail:
     type: image_image
-    weight: 12
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
@@ -222,6 +201,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  comment_node_thumb: true
   publish_on: true
   unpublish_on: true

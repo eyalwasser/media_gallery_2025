@@ -9,7 +9,7 @@
         "chat": "https://www.drupal.org/node/314178"
     },
     "scripts": {
-        "post-update-cmd": [
+        "post-install-cmd": [
            "mkdir -p web/libraries/bootstrap",
            "cp -R vendor/twbs/bootstrap/dist web/libraries/bootstrap"
         ]
@@ -38,6 +38,7 @@
         "drupal/date_popup": "^2.0",
         "drupal/devel": "^5.3",
         "drupal/download_count": "^2.2",
+        "drupal/dropzonejs": "^2.11",
         "drupal/eca": "^2.1",
         "drupal/entity": "^1.5",
         "drupal/exclude_node_title": "^1.4",
@@ -82,7 +83,8 @@
         "drupal/views_bulk_operations": "^4.3",
         "drupal/views_data_export": "^1.5",
         "drupal/votingapi": "^3.0@beta",
-        "drush/drush": "^13.3"
+        "drush/drush": "^13.3",
+        "enyo/dropzone": "^5.9"
     },
     "conflict": {
         "drupal/drupal": "*"

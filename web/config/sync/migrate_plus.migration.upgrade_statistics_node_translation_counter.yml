@@ -45,4 +45,13 @@ destination:
 migration_dependencies:
   required:
     - upgrade_statistics_node_counter
-  optional: {  }
+  optional:
+    - upgrade_d7_node_complete_article
+    - upgrade_d7_node_complete_documents
+    - upgrade_d7_node_complete_image_file
+    - upgrade_d7_node_complete_new
+    - upgrade_d7_node_complete_node_id
+    - upgrade_d7_node_complete_page
+    - upgrade_d7_node_complete_panel
+    - upgrade_d7_node_complete_simple_node
+    - upgrade_d7_node_complete_thumb

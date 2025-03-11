@@ -26,6 +26,7 @@ module:
   datetime: 0
   dblog: 0
   download_count: 0
+  dropzonejs: 0
   dynamic_page_cache: 0
   eca: 0
   eca_access: 0
@@ -77,6 +78,7 @@ module:
   masquerade: 0
   media: 0
   media_bulk_upload: 0
+  media_bulk_upload_dropzonejs: 0
   menu_link_content: 0
   menu_ui: 0
   migrate: 0

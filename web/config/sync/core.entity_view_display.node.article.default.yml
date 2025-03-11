@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.article.comment_node_article
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.wide
+    - image.style.large
     - node.type.article
   module:
     - comment
@@ -28,7 +28,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   comment:
     type: comment_default
@@ -53,11 +53,11 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: wide
+      image_style: large
       image_loading:
-        attribute: eager
+        attribute: lazy
     third_party_settings: {  }
-    weight: -1
+    weight: 0
     region: content
   field_tags:
     type: entity_reference_label
@@ -65,7 +65,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 3
     region: content
   links:
     settings: {  }

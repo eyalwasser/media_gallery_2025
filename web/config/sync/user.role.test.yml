@@ -3,10 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.filtered_html
     - filter.format.full_html
+    - node.type.documents
+    - node.type.image_file
+    - node.type.new
+    - node.type.thumb
   module:
     - comment
     - exclude_node_title
+    - field_permissions
     - filter
     - node
     - system
@@ -19,9 +25,52 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'administer taxonomy'
+  - 'create field_country'
+  - 'create field_global'
+  - 'create field_image_ref'
+  - 'create field_learning_sets'
+  - 'create field_make_available_to_all_mfs'
+  - 'create field_media_type'
+  - 'create field_mf_parent'
+  - 'create field_mf_user_type'
+  - 'create image_file content'
+  - 'create new content'
+  - 'create thumb content'
+  - 'delete any image_file content'
+  - 'delete own new content'
+  - 'delete own thumb content'
+  - 'edit field_learning_sets'
+  - 'edit field_media_type'
+  - 'edit field_mf_user_type'
+  - 'edit own documents content'
+  - 'edit own field_country'
+  - 'edit own field_global'
+  - 'edit own field_image_ref'
+  - 'edit own field_learning_sets'
+  - 'edit own field_make_available_to_all_mfs'
+  - 'edit own field_media_type'
+  - 'edit own field_mf_parent'
+  - 'edit own field_mf_user_type'
+  - 'edit own image_file content'
+  - 'edit own new content'
+  - 'edit own thumb content'
   - 'exclude any node title'
   - 'post comments'
   - 'skip comment approval'
   - 'use exclude node title'
+  - 'use text format filtered_html'
   - 'use text format full_html'
+  - 'view field_global'
+  - 'view field_image_ref'
+  - 'view field_learning_sets'
+  - 'view field_media_type'
+  - 'view field_mf_user_type'
+  - 'view own field_country'
+  - 'view own field_global'
+  - 'view own field_image_ref'
+  - 'view own field_learning_sets'
+  - 'view own field_make_available_to_all_mfs'
+  - 'view own field_media_type'
+  - 'view own field_mf_parent'
+  - 'view own field_mf_user_type'
   - 'view own unpublished content'

@@ -36,7 +36,7 @@ modeldata: |
             <camunda:string>admin/content/media/bulk_upload?edit[default_values][field_image_ref][und]=[node:nid]</camunda:string>
           </camunda:field>
           <camunda:field name="replace_tokens">
-            <camunda:string>no</camunda:string>
+            <camunda:string>yes</camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
         <bpmn2:incoming>Flow_0vfx945</bpmn2:incoming>
@@ -63,15 +63,15 @@ modeldata: |
             <dc:Bounds x="337" y="145" width="67" height="27" />
           </bpmndi:BPMNLabel>
         </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_19uukjt_di" bpmnElement="Activity_19uukjt">
+          <dc:Bounds x="480" y="80" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Event_1r8f6mz_di" bpmnElement="Event_1r8f6mz">
           <dc:Bounds x="352" y="212" width="36" height="36" />
           <bpmndi:BPMNLabel>
             <dc:Bounds x="338" y="255" width="65" height="27" />
           </bpmndi:BPMNLabel>
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="Activity_19uukjt_di" bpmnElement="Activity_19uukjt">
-          <dc:Bounds x="480" y="80" width="100" height="80" />
-          <bpmndi:BPMNLabel />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="Flow_0vfx945_di" bpmnElement="Flow_0vfx945">
           <di:waypoint x="388" y="120" />

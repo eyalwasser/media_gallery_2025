@@ -7,8 +7,8 @@ _core:
 name: thumbnail
 label: 'Thumbnail (100×100)'
 effects:
-  020440b9-8423-47dd-980b-ffe66e90139c:
-    uuid: 020440b9-8423-47dd-980b-ffe66e90139c
+  f88bf06d-d491-4165-80c1-070da8a68056:
+    uuid: f88bf06d-d491-4165-80c1-070da8a68056
     id: image_scale
     weight: 0
     data:

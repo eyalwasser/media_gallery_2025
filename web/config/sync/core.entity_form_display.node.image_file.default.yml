@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.image_file.field_image_ref
     - node.type.image_file
   module:
+    - comment
     - file
     - path
 id: node.image_file.default
@@ -15,6 +16,12 @@ targetEntityType: node
 bundle: image_file
 mode: default
 content:
+  comment_node_image_file:
+    type: comment_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 3
@@ -23,20 +30,16 @@ content:
     third_party_settings: {  }
   field_file:
     type: file_generic
-    weight: 8
+    weight: -4
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_image_ref:
-    type: entity_reference_autocomplete
-    weight: 9
+    type: options_select
+    weight: -3
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -91,6 +94,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  comment_node_image_file: true
   publish_on: true
   unpublish_on: true

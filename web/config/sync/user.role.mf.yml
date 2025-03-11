@@ -5,9 +5,16 @@ dependencies:
   config:
     - filter.format.full_html
     - node.type.article
+    - node.type.documents
+    - node.type.image_file
+    - node.type.new
+    - node.type.node_id
     - node.type.page
+    - node.type.panel
+    - node.type.thumb
   module:
     - content_moderation
+    - field_permissions
     - filter
     - flag
     - node
@@ -24,25 +31,66 @@ permissions:
   - 'access content'
   - 'access content overview'
   - 'access user profiles'
-  - 'administer flaggings'
-  - 'administer flags'
   - 'administer search'
   - 'administer search_api'
   - 'administer taxonomy'
   - 'administer users'
   - 'cancel account'
   - 'change own username'
+  - 'create field_global'
+  - 'create field_image_ref'
+  - 'create field_learning_sets'
+  - 'create field_make_available_to_all_mfs'
+  - 'create field_media_type'
+  - 'create field_mf_parent'
+  - 'create field_mf_user_type'
+  - 'create image_file content'
+  - 'create new content'
+  - 'create thumb content'
+  - 'delete own new content'
+  - 'delete own thumb content'
+  - 'edit field_learning_sets'
+  - 'edit field_media_type'
+  - 'edit field_mf_user_type'
+  - 'edit own documents content'
+  - 'edit own field_global'
+  - 'edit own field_image_ref'
+  - 'edit own field_learning_sets'
+  - 'edit own field_make_available_to_all_mfs'
+  - 'edit own field_media_type'
+  - 'edit own field_mf_parent'
+  - 'edit own field_mf_user_type'
+  - 'edit own image_file content'
+  - 'edit own new content'
+  - 'edit own thumb content'
   - 'flag local_show_lc'
-  - 'flag local_show_lc other items'
-  - 'flag local_show_lc own items'
+  - 'flag show_my_users'
   - 'search content'
   - 'select account cancellation method'
   - 'unflag local_show_lc'
-  - 'unflag local_show_lc other items'
-  - 'unflag local_show_lc own items'
+  - 'unflag show_my_users'
   - 'use advanced search'
   - 'use text format full_html'
   - 'view any unpublished article content'
   - 'view any unpublished content'
+  - 'view any unpublished documents content'
+  - 'view any unpublished image_file content'
+  - 'view any unpublished new content'
+  - 'view any unpublished node_id content'
   - 'view any unpublished page content'
+  - 'view any unpublished panel content'
+  - 'view any unpublished thumb content'
+  - 'view field_global'
+  - 'view field_image_ref'
+  - 'view field_learning_sets'
+  - 'view field_media_type'
+  - 'view field_mf_user_type'
+  - 'view own field_country'
+  - 'view own field_global'
+  - 'view own field_image_ref'
+  - 'view own field_learning_sets'
+  - 'view own field_make_available_to_all_mfs'
+  - 'view own field_media_type'
+  - 'view own field_mf_parent'
+  - 'view own field_mf_user_type'
   - 'view own unpublished content'

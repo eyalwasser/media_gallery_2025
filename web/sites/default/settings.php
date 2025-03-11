@@ -892,6 +892,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+/*
 $databases['default']['default'] = [
   'database' => 'eyal_drupal10',
   'username' => 'root',
@@ -914,7 +915,7 @@ $databases['migrate']['default'] = [
    'prefix' => '',
 ];
 $settings['config_sync_directory'] = 'config/sync/';
-
+*/
 /**
  * Exclude modules from configuration synchronization.
  *
