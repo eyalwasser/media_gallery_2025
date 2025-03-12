@@ -41,6 +41,8 @@ jobs:
             MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
             MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
             HOST=${{ secrets.HOST }}
+            CACHE_BUSTER=${{ github.sha }}
+          no-cache: true
             
             
       - name: Deploy to server
