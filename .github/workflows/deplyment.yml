@@ -123,12 +123,11 @@ jobs:
               CURRENT_PORT="127.0.0.1:8081"
               CURRENT="drupal-blue"
             else
-
               echo "Green (8082) is active, deploying to blue (8081)..."
               TARGET_PORT="127.0.0.1:8081"
               TARGET="drupal-blue"
               CURRENT_PORT="127.0.0.1:8082"
-              CURRENT="drupal-green""
+              CURRENT="drupal-green"
             fi
             
             # Stop and remove target container if it exists
