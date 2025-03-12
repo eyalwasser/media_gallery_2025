@@ -1,0 +1,104 @@
+FROM php:8.3-apache-bullseye
+
+ARG MYSQL_USER
+ARG MYSQL_PASSWORD
+ARG MYSQL_DATABASE
+ARG HOST
+
+# Set environment variables from build arguments
+ENV MYSQL_USER=${MYSQL_USER}
+ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
+ENV MYSQL_DATABASE=${MYSQL_DATABASE}
+ENV HOST=${HOST}
+
+WORKDIR /var/www/html
+
+# Increase memory limit for PHP.
+RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini \ 
+&& echo 'max_execution_time = 300' >> /usr/local/etc/php/conf.d/docker-php-max_execution_time.ini \
+&& echo 'upload_max_filesize = 128M' >> /usr/local/etc/php/conf.d/docker-php-upload_max_filesize.ini \
+&& echo 'post_max_size = 128M' >> /usr/local/etc/php/conf.d/docker-php-post_max_size.ini \
+&& echo "html_errors = off" >> /usr/local/etc/php/conf.d/docker-php-html.ini \
+&& echo "expose_php = off" >> /usr/local/etc/php/conf.d/docker-php-functions.ini \
+&& echo 'display_errors = off' >> /usr/local/etc/php/conf.d/docker-php-display-errors.ini \
+&& echo "output_buffering = 4096" > /usr/local/etc/php/conf.d/output_buffering.ini
+
+# PHP session handling settings.
+RUN echo "session.cookie_httponly = 1" >> /usr/local/etc/php/conf.d/docker-php-session.ini \
+&& echo "session.cookie_samesite = strict" >> /usr/local/etc/php/conf.d/docker-php-session.ini \
+&& echo "session.session.cache_expire = 30" >> /usr/local/etc/php/conf.d/docker-php-session.ini \
+&& echo "session.sid_length = 256" >> /usr/local/etc/php/conf.d/docker-php-session.ini 
+
+# Get dependencies.
+RUN apt-get update && apt-get install -y \
+	curl \
+	git \
+	vim \
+	wget \
+	zip \
+	unzip \
+	rsyslog \
+	supervisor \
+	libwebp-dev \
+	webp \
+	libmagickwand-dev \
+	build-essential \
+	libfreetype6-dev \
+	libjpeg-dev \
+	libpng-dev \
+	libpq-dev \
+	libzip-dev \
+    zlib1g-dev 
+
+# GD
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp && docker-php-ext-install -j "$(nproc)" gd
+
+# Install MySQL client.
+RUN docker-php-ext-install mysqli pdo_mysql bcmath && \
+	docker-php-ext-enable mysqli pdo_mysql bcmath
+
+# Install and enable APCu uploadprogress
+RUN pecl install apcu uploadprogress \
+&& docker-php-ext-enable apcu uploadprogress
+
+# Enable OPcache
+RUN docker-php-ext-install opcache
+
+# Configure APCu
+RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini \
+    && echo "apc.enable_cli=1" >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini \
+    && echo "apc.shm_size=128M" >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini
+
+RUN echo "extension=uploadprogress.so" > /usr/local/etc/php/conf.d/docker-php-ext-uploadprogress.ini
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Get Composer.
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+	php composer-setup.php && \
+	mv composer.phar /usr/local/bin/composer && \
+	php -r "unlink('composer-setup.php');"
+
+RUN a2enmod rewrite headers
+
+# Remove the included installation of Drupal.
+RUN rm -rf /var/www/html/*
+
+COPY --chown=www-data:www-data . /var/www/html
+
+# Copy Apache config  
+COPY /config/apache-drupal.conf /etc/apache2/sites-enabled/000-default.conf
+
+RUN echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
+
+# Clean up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    
+RUN composer install
+
+# Update PATH for Composer binaries
+ENV PATH="/var/www/html/vendor/bin:${PATH}"
+
+EXPOSE 80
+
+CMD ["apache2-foreground" ]
