@@ -1,9 +1,9 @@
 name: Drupal Blue-Green Deployment
 on:
   push:
-    branches: [ pipeline ]
+    branches: [ master ]
   pull_request:
-    branches: [ pipeline ]
+    branches: [ master ]
   workflow_dispatch:
 jobs:
   build-and-deploy:
