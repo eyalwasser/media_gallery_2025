@@ -42,6 +42,7 @@ jobs:
             MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
             HOST=${{ secrets.HOST }}
             
+            
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -53,9 +54,13 @@ jobs:
             # Login to GitHub Container Registry
             echo ${{ secrets.DOCKER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
+            SHA_TAG="ghcr.io/${{ github.repository }}:sha-${{ github.sha }}"
+
             # Pull the latest image
-            docker pull ghcr.io/${{ github.repository }}:latest
-            
+            # docker pull ghcr.io/${{ github.repository }}:latest
+            # Pull the specific SHA-tagged image
+            docker pull $SHA_TAG
+
             # Check if this is first-time setup
             if ! docker network inspect drupal-network &>/dev/null; then
               echo "Setting up infrastructure for the first time..."
@@ -139,7 +144,7 @@ jobs:
             --network drupal-network \
             -v drupal-data:/var/www/html \
             -p ${TARGET_PORT#*:}:80 \
-            ghcr.io/${{ github.repository }}:latest
+            $SHA_TAG
             
             # Wait for container to be ready
             echo "Waiting for $TARGET to be ready..."
