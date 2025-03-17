@@ -1,0 +1,8 @@
+uuid: 9173c171-1fc6-4bd9-ad1e-1e20cf601f2d
+langcode: en
+status: true
+dependencies: {  }
+id: view_block
+label: 'View block'
+revision: false
+description: 'This block allow to add view block as front end block.'

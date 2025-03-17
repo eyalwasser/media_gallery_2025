@@ -1,0 +1,27 @@
+uuid: da4059d3-6e26-43bd-9dcb-cd60be3d0be5
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bootstrap
+_core:
+  default_config_hash: DqPqol-baCH3c_DZ7VSOHlQXmGSAeu2Yvir7jBjEA0s
+id: bootstrap_account_menu
+theme: bootstrap
+region: top_header_form
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

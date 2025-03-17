@@ -1,0 +1,26 @@
+uuid: 50f5ce1c-54da-47f0-897e-c366f9c0833c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stationery
+    - node.type.thumb
+    - taxonomy.vocabulary.stationery
+id: node.thumb.field_stationery
+field_name: field_stationery
+entity_type: node
+bundle: thumb
+label: Business
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      stationery: stationery
+    sort:
+      field: _none
+field_type: entity_reference

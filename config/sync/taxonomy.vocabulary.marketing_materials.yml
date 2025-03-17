@@ -1,0 +1,9 @@
+uuid: 8cab4d1d-5568-4ccb-b4d9-e841d7852695
+langcode: en
+status: true
+dependencies: {  }
+name: 'Marketing Materials'
+vid: marketing_materials
+description: null
+weight: 0
+new_revision: false

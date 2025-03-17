@@ -1,0 +1,17 @@
+uuid: b5649ad9-f8c4-43cd-901f-8fd0b20ddf3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - scheduler
+third_party_settings:
+  scheduler: {  }
+_core:
+  default_config_hash: i0snV8Wj--OkRW12UdachUiYiz3FbeMwHu_pZYfzKLc
+name: 'Basic page'
+type: page
+description: "Use <em>basic pages</em> for your static content, such as an 'About us' page."
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

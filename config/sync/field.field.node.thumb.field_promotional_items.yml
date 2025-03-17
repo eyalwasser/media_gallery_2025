@@ -1,0 +1,26 @@
+uuid: a9c5012c-6188-4a15-9916-4a7d01d717a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promotional_items
+    - node.type.thumb
+    - taxonomy.vocabulary.promotional_items
+id: node.thumb.field_promotional_items
+field_name: field_promotional_items
+entity_type: node
+bundle: thumb
+label: 'Promotional Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      promotional_items: promotional_items
+    sort:
+      field: _none
+field_type: entity_reference

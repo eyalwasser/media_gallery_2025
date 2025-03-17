@@ -1,0 +1,15 @@
+uuid: ae9ea922-d8d3-4b37-a72b-1bc144c4e83d
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.show_my_users
+  module:
+    - flag
+id: flag_action.show_my_users_unflag
+label: 'Add Local'
+type: node
+plugin: 'flag_action:show_my_users_unflag'
+configuration:
+  flag_id: show_my_users
+  flag_action: unflag

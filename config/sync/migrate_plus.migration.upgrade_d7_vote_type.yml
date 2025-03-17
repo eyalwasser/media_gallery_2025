@@ -1,0 +1,41 @@
+uuid: 3b9b99c8-43e7-4c2e-9382-1b3f5235d3c1
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_vote_type
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Vote Type'
+source:
+  plugin: d7_vote_type
+  constants:
+    value_type: points
+    description: 'Migrated from Drupal 7'
+process:
+  id:
+    -
+      plugin: machine_name
+      source: tag
+  label:
+    -
+      plugin: callback
+      source: tag
+      callable: ucfirst
+  value_type:
+    -
+      plugin: get
+      source: constants/value_type
+  description:
+    -
+      plugin: get
+      source: constants/description
+destination:
+  plugin: 'entity:vote_type'
+migration_dependencies:
+  required: {  }
+  optional: {  }

@@ -1,0 +1,26 @@
+uuid: ebfe2953-14a8-4baa-9d10-c650067e20c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.thumb
+    - taxonomy.vocabulary.tags
+id: node.thumb.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: thumb
+label: Keywords
+description: 'Separate each word/phrase with a comma'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+field_type: entity_reference

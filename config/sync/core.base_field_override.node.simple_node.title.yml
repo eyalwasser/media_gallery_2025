@@ -1,0 +1,18 @@
+uuid: e3c8cabe-953c-496d-85f7-2cd7e56cd81d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.simple_node
+id: node.simple_node.title
+field_name: title
+entity_type: node
+bundle: simple_node
+label: 'Simple Node Importer'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

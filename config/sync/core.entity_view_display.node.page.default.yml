@@ -1,0 +1,101 @@
+uuid: 91e0293a-83cd-4c73-aed9-a48211bb7342
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_page.default
+    - field.field.node.page.body
+    - field.field.node.page.comment_node_page
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - comment
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          c93daf31-8476-4f8b-ab24-a1e45ef7f5e3:
+            uuid: c93daf31-8476-4f8b-ab24-a1e45ef7f5e3
+            region: content
+            configuration:
+              id: 'field_block:node:page:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          977aae75-d015-451e-b787-8dbd21fdf85c:
+            uuid: 977aae75-d015-451e-b787-8dbd21fdf85c
+            region: content
+            configuration:
+              id: 'field_block:node:page:comment_node_page'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: comment_default
+                label: hidden
+                settings:
+                  view_mode: default
+                  pager_id: 0
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          5a7fae7a-4dcf-4b6a-a38e-69efdecf3842:
+            uuid: 5a7fae7a-4dcf-4b6a-a38e-69efdecf3842
+            region: content
+            configuration:
+              id: 'extra_field_block:node:page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  comment_node_page:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+hidden:
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

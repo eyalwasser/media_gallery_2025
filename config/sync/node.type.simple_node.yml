@@ -1,0 +1,15 @@
+uuid: 9f410972-3d4b-4cc6-b1ea-c156a4872ca0
+langcode: en
+status: true
+dependencies:
+  module:
+    - scheduler
+third_party_settings:
+  scheduler: {  }
+name: 'Simple Node Importer'
+type: simple_node
+description: 'This is simple node immporter content type.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

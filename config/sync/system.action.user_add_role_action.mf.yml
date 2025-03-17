@@ -1,0 +1,14 @@
+uuid: ec5e8678-80a6-4d91-89ab-4d0a6d8af8ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mf
+  module:
+    - user
+id: user_add_role_action.mf
+label: 'Add the MF role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: mf

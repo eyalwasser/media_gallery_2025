@@ -1,0 +1,183 @@
+name: Drupal Blue-Green Deployment
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=sha,format=long
+            type=raw,value=latest,enable={{is_default_branch}}
+            
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.prod
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            MYSQL_USER=${{ secrets.MYSQL_USER }}
+            MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+            MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
+            HOST=${{ secrets.HOST }}
+            CACHE_BUSTER=${{ github.sha }}
+          no-cache: true
+            
+            
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            # Login to GitHub Container Registry
+            echo ${{ secrets.DOCKER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            
+            SHA_TAG="ghcr.io/${{ github.repository }}:sha-${{ github.sha }}"
+
+            # Pull the latest image
+            # docker pull ghcr.io/${{ github.repository }}:latest
+            # Pull the specific SHA-tagged image
+            docker pull $SHA_TAG
+
+            # Check if this is first-time setup
+            if ! docker network inspect drupal-network &>/dev/null; then
+              echo "Setting up infrastructure for the first time..."
+              
+              # Create network
+              docker network create drupal-network
+              
+              # Create external volumes (if they don't exist)
+              docker volume create mysql-data
+              docker volume create drupal-data
+              docker volume create solr-data
+              
+              # Start MySQL container
+              docker run -d --name mysql \
+                --network drupal-network \
+                -v mysql-data:/var/lib/mysql \
+                -e MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }} \
+                -e MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} \
+                -e MYSQL_USER=${{ secrets.MYSQL_USER }} \
+                -e  =${{ secrets.MYSQL_PASSWORD }} \
+                -p 3306:3306 \
+                mysql:8.0
+              
+              # Start Solr container
+              docker run -d --name solr \
+                    --network drupal-network \
+                    -v solr-data:/var/solr \
+                    -p 8983:8983 \
+                    solr:8
+            else
+              echo "Infrastructure already exists, checking containers..."
+              
+              # Ensure MySQL is running
+              if ! docker ps | grep -q mysql; then
+                echo "Starting MySQL container..."
+                docker start mysql || docker run -d --name mysql \
+                  --network drupal-network \
+                  -v mysql-data:/var/lib/mysql \
+                  -e MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }} \
+                  -e MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} \
+                  -e MYSQL_USER=${{ secrets.MYSQL_USER }} \
+                  -e MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
+                  mysql:8.0
+              fi
+              
+              # Ensure Solr is running
+              if ! docker ps | grep -q solr; then
+                echo "Starting Solr container..."
+                docker start solr || docker run -d --name solr \
+                  --network drupal-network \
+                  -v solr-data:/var/solr \
+                  -p 8983:8983 \
+                  solr:8
+              fi
+            fi
+            
+            # Check which environment is currently active from Nginx config
+            ACTIVE_PORT=$(grep -o "127.0.0.1:808[12]" /etc/nginx/conf.d/drupal.conf | head -1 || echo "")
+            
+            if [ "$ACTIVE_PORT" = "127.0.0.1:8081" ] || [ -z "$ACTIVE_PORT" ]; then
+              # Blue (8081) is running, deploy to green (8082)
+              echo "Blue (8081) is active, deploying to green (8082)..."
+              TARGET_PORT="127.0.0.1:8082"
+              TARGET="drupal-green"
+              CURRENT_PORT="127.0.0.1:8081"
+              CURRENT="drupal-blue"
+            else
+              echo "Green (8082) is active, deploying to blue (8081)..."
+              TARGET_PORT="127.0.0.1:8081"
+              TARGET="drupal-blue"
+              CURRENT_PORT="127.0.0.1:8082"
+              CURRENT="drupal-green"
+            fi
+            
+            # Stop and remove target container if it exists
+            docker stop $TARGET 2>/dev/null || true
+            docker rm $TARGET 2>/dev/null || true
+            
+            # Start the new container
+            docker run -d --name $TARGET \
+            --network drupal-network \
+            -v drupal-files:/var/www/html/web/sites/default/files \
+            -p ${TARGET_PORT#*:}:80 \
+            $SHA_TAG
+            
+            # Wait for container to be ready
+            echo "Waiting for $TARGET to be ready..."
+            sleep 30
+            
+            # Run Drupal updates
+            docker exec $TARGET drush status
+            docker exec $TARGET drush cim -y || true
+            docker exec $TARGET drush updb -y || true
+            docker exec $TARGET drush cr || true
+            
+            # Check if target container is healthy
+            if docker ps | grep -q $TARGET; then
+              echo "$TARGET is running, switching traffic..."
+              
+              # Update Nginx configuration (using host's Nginx, not Docker)
+              sudo sed -i "s/$CURRENT_PORT/$TARGET_PORT/g" /etc/nginx/conf.d/drupal.conf
+              
+              # Reload Nginx
+              sudo systemctl reload nginx
+              
+              echo "Zero-downtime deployment complete! Traffic now routing to $TARGET"
+              
+              # Wait before stopping old container to ensure requests are drained
+              sleep 20
+              docker stop $CURRENT || true
+            else
+              echo "ERROR: $TARGET container failed to start. Keeping traffic on $CURRENT"
+              docker logs $TARGET
+              exit 1
+            fi
+            
+            # Clean up old images
+            docker image prune -a -f --filter "until=24h"

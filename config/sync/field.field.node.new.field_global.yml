@@ -1,0 +1,23 @@
+uuid: 7c9f2010-63cb-4868-97f6-084db68a00fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_global
+    - node.type.new
+id: node.new.field_global
+field_name: field_global
+entity_type: node
+bundle: new
+label: Global
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: ''
+  off_label: ''
+field_type: boolean
