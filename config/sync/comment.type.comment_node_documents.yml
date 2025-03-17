@@ -1,8 +1,0 @@
-uuid: 0f2e0794-9184-4541-9569-cf140bc776ab
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_documents
-label: 'Documents comment'
-target_entity_type_id: node
-description: null

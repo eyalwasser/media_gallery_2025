@@ -1,9 +1,0 @@
-uuid: 42afb4c2-3a4d-4882-b127-234293080e5f
-langcode: en
-status: true
-dependencies: {  }
-name: 'Promotional Items'
-vid: promotional_items
-description: null
-weight: 0
-new_revision: false

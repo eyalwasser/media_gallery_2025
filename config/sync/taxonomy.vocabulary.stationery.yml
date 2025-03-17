@@ -1,9 +1,0 @@
-uuid: 7d6f9d69-bbf3-4196-ac6d-062fd185c030
-langcode: en
-status: true
-dependencies: {  }
-name: Business
-vid: stationery
-description: null
-weight: 0
-new_revision: false

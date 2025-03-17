@@ -1,8 +1,0 @@
-uuid: be5b45aa-d0f7-4cb0-bfbe-ec74302a7083
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_simple_node
-label: 'Simple Node Importer comment'
-target_entity_type_id: node
-description: null

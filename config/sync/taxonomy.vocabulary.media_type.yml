@@ -1,9 +1,0 @@
-uuid: e1e965fd-150b-49a8-b38b-5ec789560b21
-langcode: en
-status: true
-dependencies: {  }
-name: 'Media Type'
-vid: media_type
-description: null
-weight: 0
-new_revision: false

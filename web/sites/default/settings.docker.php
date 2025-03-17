@@ -801,7 +801,7 @@ $databases['migrate']['default'] = [
   'driver' => 'mysql',
   'prefix' => '',
 ];
-$settings['config_sync_directory'] = '../config/sync';
+$settings['config_sync_directory'] = 'config/sync';
 
 $config['search_api.server.solr'] = [
   'backend_config' => [
