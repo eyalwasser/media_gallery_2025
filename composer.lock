@@ -4,8 +4,17 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbad00b56439a71acc506a51c2668297",
+    "content-hash": "5856d62112f3f2589bb0cd132d08d39e",
     "packages": [
+        {
+            "name": "apvarun/toastify-js",
+            "version": "v1.11.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/apvarun/toastify-js/archive/refs/tags/1.11.2.zip"
+            },
+            "type": "drupal-library"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.2.0",
@@ -4123,31 +4132,30 @@
         },
         {
             "name": "drupal/gin_lb",
-            "version": "dev-2.0.x",
+            "version": "1.0.0-rc5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin_lb.git",
-                "reference": "8a2fb9062dbff276a23b52e5cb8f7e56004843e4"
+                "reference": "1.0.0-rc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/gin_lb-1.0.0-rc5.zip",
+                "reference": "1.0.0-rc5",
+                "shasum": "e8ae8fbe0b7642645dd173b72cd19da86e6e7f15"
             },
             "require": {
-                "drupal/core": "^10.1 || ^11",
-                "drupal/gin": "^4.0",
-                "drupal/gin_toolbar": "^2.0"
-            },
-            "conflict": {
-                "drupal/lb_claro": "*"
+                "drupal/core": "^9.3 || ^10",
+                "drupal/gin_toolbar": "*"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.0.x": "2.0.x-dev"
-                },
                 "drupal": {
-                    "version": "2.0.x-dev",
-                    "datestamp": "1740606069",
+                    "version": "1.0.0-rc5",
+                    "datestamp": "1696943060",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -4173,7 +4181,7 @@
                     "homepage": "https://www.drupal.org/user/856550"
                 }
             ],
-            "description": "Layout Builder in Gin style.",
+            "description": "Layout Builder in Gin style",
             "homepage": "https://www.drupal.org/project/gin_lb",
             "support": {
                 "source": "https://git.drupalcode.org/project/gin_lb"
@@ -7002,17 +7010,17 @@
         },
         {
             "name": "drupal/views_bootstrap",
-            "version": "4.5.0",
+            "version": "5.5.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bootstrap.git",
-                "reference": "8.x-4.5"
+                "reference": "5.5.0-rc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-8.x-4.5.zip",
-                "reference": "8.x-4.5",
-                "shasum": "050e3ca2caf0ee9e81a6b8462eeba7dba27dd2d8"
+                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.5.0-rc3.zip",
+                "reference": "5.5.0-rc3",
+                "shasum": "c50177c4b8ec56640ed99d0533774233d0583518"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -7020,11 +7028,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-4.5",
-                    "datestamp": "1722552018",
+                    "version": "5.5.0-rc3",
+                    "datestamp": "1728259899",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -7054,7 +7062,7 @@
                     "homepage": "https://www.drupal.org/user/2674989"
                 }
             ],
-            "description": "Allows for different styles to be used in views to work with Bootstrap 4 components.",
+            "description": "Allows for different styles to be used in views to work with Bootstrap 5 components.",
             "homepage": "https://www.drupal.org/project/views_bootstrap",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_bootstrap"
@@ -13059,15 +13067,16 @@
         "drupal/feeds_tamper": 10,
         "drupal/fivestar": 15,
         "drupal/flag": 10,
-        "drupal/gin_lb": 20,
+        "drupal/gin_lb": 5,
         "drupal/page_manager": 5,
         "drupal/tamper": 15,
+        "drupal/views_bootstrap": 5,
         "drupal/viewsreference": 10,
         "drupal/votingapi": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

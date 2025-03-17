@@ -6,12 +6,114 @@ dependencies:
     - core.entity_view_display.comment.comment_node_image_file.default
     - field.field.node.image_file.comment_node_image_file
     - field.field.node.image_file.field_file
+    - field.field.node.image_file.field_fivestar
     - field.field.node.image_file.field_image_ref
     - node.type.image_file
   module:
     - comment
     - file
+    - fivestar
+    - layout_builder
+    - layout_discovery
     - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          05637fa4-31bf-410c-81c6-67425e7a2357:
+            uuid: 05637fa4-31bf-410c-81c6-67425e7a2357
+            region: content
+            configuration:
+              id: 'field_block:node:image_file:field_file'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: file_default
+                label: inline
+                settings:
+                  use_description_as_link_text: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          8eb1cdc4-87b9-4b0a-8064-90a15532517a:
+            uuid: 8eb1cdc4-87b9-4b0a-8064-90a15532517a
+            region: content
+            configuration:
+              id: 'field_block:node:image_file:field_image_ref'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          bad86e33-6712-4e74-8445-d278503c26f7:
+            uuid: bad86e33-6712-4e74-8445-d278503c26f7
+            region: content
+            configuration:
+              id: 'extra_field_block:node:image_file:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 2
+            additional: {  }
+          c0d66fd7-f5eb-4644-95f0-0e2efcb15bc3:
+            uuid: c0d66fd7-f5eb-4644-95f0-0e2efcb15bc3
+            region: content
+            configuration:
+              id: 'extra_field_block:node:image_file:search_api_excerpt'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 3
+            additional: {  }
+          fa7d70ab-4023-4e68-acbb-9bcd4f91f029:
+            uuid: fa7d70ab-4023-4e68-acbb-9bcd4f91f029
+            region: content
+            configuration:
+              id: 'field_block:node:image_file:comment_node_image_file'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: comment_default
+                label: hidden
+                settings:
+                  view_mode: default
+                  pager_id: 0
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          94362ca8-bf84-42b5-a00c-6d2a73fb4c83:
+            uuid: 94362ca8-bf84-42b5-a00c-6d2a73fb4c83
+            region: content
+            configuration:
+              id: 'field_block:node:image_file:field_fivestar'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: fivestar_stars
+                label: above
+                settings:
+                  text_format: average
+                  display_format: average
+                  fivestar_widget: basic
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+        third_party_settings: {  }
 id: node.image_file.default
 targetEntityType: node
 bundle: image_file
@@ -34,6 +136,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_fivestar:
+    type: fivestar_stars
+    label: above
+    settings:
+      text_format: average
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+    weight: 21
+    region: content
   field_image_ref:
     type: entity_reference_label
     label: inline
@@ -54,3 +166,4 @@ content:
     region: content
 hidden:
   langcode: true
+  layout_builder__layout: true

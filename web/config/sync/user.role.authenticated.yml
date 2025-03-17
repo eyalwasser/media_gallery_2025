@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - field_permissions
     - node
     - search
     - search_api
@@ -19,3 +20,5 @@ permissions:
   - 'administer search_api'
   - 'search content'
   - 'use advanced search'
+  - 'view field_fivestar'
+  - 'view own field_fivestar'

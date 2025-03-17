@@ -1,0 +1,16 @@
+uuid: 7f2293d5-3104-4b3d-ad04-a85714e13cb9
+langcode: en
+status: true
+dependencies: {  }
+id: '42_58'
+layout_id: blb_col_2
+label: '42% 58%'
+structure: '5 7'
+breakpoints:
+  desktop: desktop
+  tablet: tablet
+  mobile: '0'
+default_breakpoints:
+  desktop: '0'
+  tablet: '0'
+weight: 0

@@ -1,0 +1,26 @@
+uuid: 2c1fdd66-eba8-411e-a151-7707ff3ba2d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hdimagebank
+_core:
+  default_config_hash: bi_NF7mIfj0Eci761iWEPMJACdaznw6IkWFSQxAvHLQ
+id: hdimagebank_breadcrumbs
+theme: hdimagebank
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

@@ -1,0 +1,22 @@
+uuid: 64f1d7d8-b2ed-4e1c-8c60-ac753f2e90d3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hdimagebank
+_core:
+  default_config_hash: p0VadUATrICsopjjKaNxNxAF5CLG4OnDRLjN04m0uXE
+id: hdimagebank_primary_local_tasks
+theme: hdimagebank
+region: content
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

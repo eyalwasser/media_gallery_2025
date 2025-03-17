@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_by_mf
+    - field.storage.node.field_flags
+    - field.storage.node.field_learning_sets
     - field.storage.node.field_thumbnail
     - search_api.server.solr_server
   module:
     - node
     - search_api_solr
+    - taxonomy
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -77,6 +80,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_by_mf
+  field_flags:
+    label: Flags
+    datasource_id: 'entity:node'
+    property_path: field_flags
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_flags
   field_thumbnail:
     label: Thumbnail
     datasource_id: 'entity:node'
@@ -85,6 +96,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_thumbnail
+  name:
+    label: 'Learning Sets » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_learning_sets:entity:name'
+    type: text
+    boost: 21.0
+    dependencies:
+      config:
+        - field.storage.node.field_learning_sets
+      module:
+        - taxonomy
   nid:
     label: ID
     datasource_id: 'entity:node'

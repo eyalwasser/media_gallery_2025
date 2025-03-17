@@ -1,0 +1,26 @@
+uuid: e551ce61-09a1-45d4-b72b-f815d88849cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hdimagebank
+_core:
+  default_config_hash: 5wMlFhDM2UJ5HoSdIFzO-cPr6K1bzX83iSlOrhbfHW4
+id: hdimagebank_page_title
+theme: hdimagebank
+region: highlighted
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'
