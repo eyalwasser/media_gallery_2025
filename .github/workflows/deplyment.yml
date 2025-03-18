@@ -2,8 +2,6 @@ name: Drupal Blue-Green Deployment
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
   workflow_dispatch:
 jobs:
   build-and-deploy:
@@ -44,7 +42,6 @@ jobs:
             CACHE_BUSTER=${{ github.sha }}
           no-cache: true
             
-            
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -57,12 +54,9 @@ jobs:
             echo ${{ secrets.DOCKER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             SHA_TAG="ghcr.io/${{ github.repository }}:sha-${{ github.sha }}"
-
-            # Pull the latest image
-            # docker pull ghcr.io/${{ github.repository }}:latest
             # Pull the specific SHA-tagged image
             docker pull $SHA_TAG
-
+            
             # Check if this is first-time setup
             if ! docker network inspect drupal-network &>/dev/null; then
               echo "Setting up infrastructure for the first time..."
@@ -82,7 +76,7 @@ jobs:
                 -e MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }} \
                 -e MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} \
                 -e MYSQL_USER=${{ secrets.MYSQL_USER }} \
-                -e  =${{ secrets.MYSQL_PASSWORD }} \
+                -e MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
                 -p 3306:3306 \
                 mysql:8.0
               
@@ -154,7 +148,24 @@ jobs:
             
             # Run Drupal updates
             docker exec $TARGET drush status
-            docker exec $TARGET drush cim -y || true
+            
+            # Run configuration import and check for errors
+            CIM_RESULT=0
+            docker exec $TARGET drush cim -y || CIM_RESULT=$?
+            
+            if [ $CIM_RESULT -ne 0 ]; then
+              echo "ERROR: Configuration import failed with status $CIM_RESULT"
+              echo "Stopping deployment and cleaning up the container..."
+              
+              # Stop and remove the container since cim failed
+              docker stop $TARGET || true
+              docker rm $TARGET || true
+              
+              echo "Deployment aborted. Traffic will continue to use $CURRENT environment"
+              exit 1
+            fi
+            
+            # If we got here, cim was successful
             docker exec $TARGET drush updb -y || true
             docker exec $TARGET drush cr || true
             
