@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.storage.node.field_by_mf
     - field.storage.node.field_flags
     - field.storage.node.field_learning_sets
@@ -115,6 +116,17 @@ field_settings:
     dependencies:
       module:
         - node
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        - anonymous
+      view_mode:
+        'entity:node':
+          ':default': ''
+          thumb: teaser
   status:
     label: Published
     datasource_id: 'entity:node'
