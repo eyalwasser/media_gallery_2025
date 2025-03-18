@@ -25,7 +25,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./drupal10_eyal_4march.sql:/docker-entrypoint-initdb.d/drupal10_eyal_4march.sql
@@ -37,7 +37,7 @@ services:
     container_name: nginx-server
     restart: always
     ports:
-      - "80:80"
+      - "8881:80"
     volumes:
       - .:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf

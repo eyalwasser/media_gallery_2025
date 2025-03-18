@@ -1,0 +1,20 @@
+uuid: fcd9182e-9fc0-409c-a17e-c95407616ae1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hdimagebank
+_core:
+  default_config_hash: dF6QX_WwokBwdqxre6E02NpjAQpjkcohTM-HwNVaS8Q
+id: hdimagebank_primary_admin_actions
+theme: hdimagebank
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

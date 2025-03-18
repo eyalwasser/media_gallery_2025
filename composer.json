@@ -10,17 +10,30 @@
     },
     "scripts": {
         "post-install-cmd": [
-           "mkdir -p web/libraries/bootstrap",
-           "cp -R vendor/twbs/bootstrap/dist web/libraries/bootstrap"
+            "mkdir -p web/libraries/bootstrap",
+            "cp -R vendor/twbs/bootstrap/dist web/libraries/bootstrap"
         ]
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "apvarun/toastify-js",
+                "version": "v1.11.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/apvarun/toastify-js/archive/refs/tags/1.11.2.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
+        "apvarun/toastify-js": "^1.11",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6",
         "drupal/admin_toolbar": "^3.5",
@@ -56,7 +69,7 @@
         "drupal/flag": "^4.0@beta",
         "drupal/genpass": "^2.1",
         "drupal/gin": "^4.0",
-        "drupal/gin_lb": "2.0.x-dev@dev",
+        "drupal/gin_lb": "^1.0@RC",
         "drupal/gin_login": "^2.1",
         "drupal/google_analytics": "^4.0",
         "drupal/imce": "^3.1",
@@ -92,11 +105,12 @@
         "drupal/token": "^1.15",
         "drupal/upgrade_status": "^4.3",
         "drupal/view_unpublished": "^1.3",
-        "drupal/views_bootstrap": "^4.5",
+        "drupal/views_bootstrap": "^5.5@RC",
         "drupal/views_bulk_operations": "^4.3",
         "drupal/views_data_export": "^1.5",
         "drupal/viewsreference": "^2.0@beta",
         "drupal/votingapi": "^3.0@beta",
+        "drupal/zoom_on_hover": "^1.1",
         "drush/drush": "^13.3",
         "enyo/dropzone": "^5.9",
         "drupal/zoom_on_hover": "^1.1"
@@ -153,9 +167,12 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches":{
+        "patches": {
             "drupal/empty_page": {
                 "compatible with drupal 10": "https://www.drupal.org/files/issues/2022-06-15/empty_page.3.0.rector.patch"
+            },
+            "drupal/gin_lb": {
+                "Gin sidebar js issue #3460060": "https://www.drupal.org/files/issues/2024-07-08/gin_sidebar_draggable_null_0.patch"
             }
         },
         "drupal-core-project-message": {

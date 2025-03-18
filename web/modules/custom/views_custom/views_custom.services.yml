@@ -1,0 +1,6 @@
+services:
+  views_custom.bulk_media_action:
+    class: Drupal\views_custom\Plugin\Action\DownloadMediaAction
+    arguments: ['@messenger']
+    tags:
+      - { name: action_plugin }

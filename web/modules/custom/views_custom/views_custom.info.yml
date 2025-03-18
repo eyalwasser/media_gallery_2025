@@ -1,0 +1,5 @@
+name: 'Views Custom'
+type: module
+description: 'It will create custom action to download bulk media'
+package: Custom
+core_version_requirement: ^10 || ^11

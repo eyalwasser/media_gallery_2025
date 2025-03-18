@@ -7,6 +7,7 @@
 /web/profiles/contrib/
 /web/libraries/
 /web/private:/
+/web/sites/*/private/
 
 # Ignore sensitive information
 #/web/sites/*/settings.php

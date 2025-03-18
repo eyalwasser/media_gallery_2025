@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.image_file.comment_node_image_file
     - field.field.node.image_file.field_file
+    - field.field.node.image_file.field_fivestar
     - field.field.node.image_file.field_image_ref
     - node.type.image_file
   module:
     - comment
     - file
+    - fivestar
     - path
 id: node.image_file.default
 targetEntityType: node
@@ -34,6 +36,15 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_fivestar:
+    type: fivestar_stars
+    weight: 26
+    region: content
+    settings:
+      text_format: none
+      display_format: average
+      fivestar_widget: basic
     third_party_settings: {  }
   field_image_ref:
     type: options_select

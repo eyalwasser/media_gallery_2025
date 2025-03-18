@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.thumb.comment_node_thumb
     - field.field.node.thumb.field_by_mf
     - field.field.node.thumb.field_documents
+    - field.field.node.thumb.field_flags
     - field.field.node.thumb.field_info
     - field.field.node.thumb.field_item_number
     - field.field.node.thumb.field_keywords
@@ -53,6 +54,13 @@ content:
     weight: 12
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_flags:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_info:
     type: string_textarea
