@@ -34,7 +34,7 @@ features:
   favicon: 1
 logo:
   use_default: 0
-  path: 'public://Group 19_0.png'
+  path: themes/custom/hdimagebank/images/logo.png
 favicon:
   use_default: 0
   path: themes/custom/hdimagebank/favicon.ico
@@ -123,7 +123,7 @@ bootstrap_sidebar_collapse: 0
 bootstrap_hide_node_label: 0
 bootstrap_breadcrumb_divider: ''
 bootstrap_button_type: primary
-bootstrap_image_fluid: 0
+bootstrap_image_fluid: 1
 bootstrap_navbar_top_navbar: 0
 bootstrap_navbar_top_class: ''
 bootstrap_navbar_class: ''

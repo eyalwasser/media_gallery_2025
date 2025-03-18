@@ -1,0 +1,9 @@
+uuid: 041f2855-a113-4756-a20b-0543dfc67f20
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aTTczXScNYUl418yV880cCZ8nwkE_N-kFHrqdUO5TYU
+name: md
+label: 'Medium devices'
+breakpoint: 992

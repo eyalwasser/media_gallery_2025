@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: my_media
-label: null
+label: 'My media'
 effects:
   eaf4a3b1-61c7-4ea8-82d1-856c425c3010:
     uuid: eaf4a3b1-61c7-4ea8-82d1-856c425c3010

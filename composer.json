@@ -42,6 +42,18 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fooplugins/footable",
+                "version": "3.1.6",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/fooplugins/FooTable/archive/refs/tags/3.1.6.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -79,6 +91,7 @@
         "drupal/filter_perms": "^2.0",
         "drupal/fivestar": "^1.0@alpha",
         "drupal/flag": "^4.0@beta",
+        "drupal/footable": "^1.0",
         "drupal/genpass": "^2.1",
         "drupal/gin": "^4.0",
         "drupal/gin_lb": "^1.0@RC",
@@ -113,6 +126,7 @@
         "drupal/stage_file_proxy": "^3.1",
         "drupal/statistics": "^1.0",
         "drupal/stringoverrides": "^1.8",
+        "drupal/tagify": "^1.2",
         "drupal/tamper": "^1.0@alpha",
         "drupal/token": "^1.15",
         "drupal/upgrade_status": "^4.3",
@@ -124,7 +138,8 @@
         "drupal/votingapi": "^3.0@beta",
         "drupal/zoom_on_hover": "^1.1",
         "drush/drush": "^13.3",
-        "enyo/dropzone": "^6.0@beta"
+        "enyo/dropzone": "^6.0@beta",
+        "fooplugins/footable": "^3.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -180,13 +195,16 @@
         },
         "patches": {
             "drupal/core": {
-                "Log error + visual warning for missing or broken block":"https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch"
+                "Log error + visual warning for missing or broken block": "https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch"
             },
             "drupal/empty_page": {
                 "compatible with drupal 10": "https://www.drupal.org/files/issues/2022-06-15/empty_page.3.0.rector.patch"
             },
             "drupal/gin_lb": {
                 "Gin sidebar js issue #3460060": "https://www.drupal.org/files/issues/2024-07-08/gin_sidebar_draggable_null_0.patch"
+            },
+            "drupal/footable": {
+                "footable-compatibility.patch": "web/patches/footable-compatibility.patch"
             }
         },
         "drupal-core-project-message": {

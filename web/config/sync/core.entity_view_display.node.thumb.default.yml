@@ -169,7 +169,7 @@ third_party_settings:
                 label: hidden
                 settings:
                   image_link: ''
-                  image_style: large
+                  image_style: webp
                   image_loading:
                     attribute: lazy
                 third_party_settings: {  }
@@ -372,10 +372,12 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_label
+                type: entity_reference_label_class
                 label: hidden
                 settings:
                   link: false
+                  class: 'badge rounded-pill bg-primary'
+                  tag: span
                 third_party_settings: {  }
             weight: 1
             additional:
@@ -464,24 +466,6 @@ third_party_settings:
                     class: null
                   scroll_effects:
                     class: null
-          eefc9b60-911a-4cbe-a371-44649f141d75:
-            uuid: eefc9b60-911a-4cbe-a371-44649f141d75
-            region: blb_region_col_1
-            configuration:
-              id: 'field_block:node:thumb:field_flags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: boolean
-                label: above
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
         third_party_settings:
           layout_builder_lock:
             lock: {  }
@@ -532,16 +516,6 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_flags:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 21
-    region: blb_region_col_1
   field_info:
     type: basic_string
     label: hidden
@@ -669,4 +643,5 @@ content:
     weight: 18
     region: content
 hidden:
+  field_flags: true
   layout_builder__layout: true

@@ -11,6 +11,7 @@ dependencies:
   module:
     - comment
     - layout_builder
+    - layout_builder_restrictions
     - layout_discovery
     - text
     - user
@@ -67,6 +68,18 @@ third_party_settings:
             weight: 2
             additional: {  }
         third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - 'bootstrap_layout_builder:blb_col_1'
+        - 'bootstrap_layout_builder:blb_col_2'
+        - 'bootstrap_layout_builder:blb_col_3'
+        - 'bootstrap_layout_builder:blb_col_4'
+        - 'bootstrap_layout_builder:blb_col_10'
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
 id: node.page.default
