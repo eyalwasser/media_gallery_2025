@@ -112,7 +112,8 @@
         "drupal/votingapi": "^3.0@beta",
         "drupal/zoom_on_hover": "^1.1",
         "drush/drush": "^13.3",
-        "enyo/dropzone": "^5.9"
+        "enyo/dropzone": "^5.9",
+        "drupal/zoom_on_hover": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"

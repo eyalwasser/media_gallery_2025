@@ -785,22 +785,13 @@ $databases['default']['default'] = array (
   'username' => getenv('MYSQL_USER'),
   'password' => getenv('MYSQL_PASSWORD'),
   'prefix' => '',
-  'host' => getenv('DB_SERVER_CONTAINER'),
+  'host' => getenv('HOST'),
   'port' => '3306',
   'isolation_level' => 'READ COMMITTED',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
-$databases['migrate']['default'] = [
-  'database' => 'hdimagebank',
-  'username' => 'root',
-  'password' => 's2K7u93fFAMMjs',
-  'host' => '112.196.0.82',
-  'port' => '3316',
-  'driver' => 'mysql',
-  'prefix' => '',
-];
 $settings['config_sync_directory'] = 'config/sync';
 
 $config['search_api.server.solr'] = [
