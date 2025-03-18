@@ -928,7 +928,7 @@ display:
           plugin_id: date
           operator: between
           value:
-            min: 'now -1 Year'
+            min: 'now -2 Year'
             max: now
             value: ''
             type: offset
