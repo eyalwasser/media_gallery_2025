@@ -30,6 +30,18 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "6.0.0-beta.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dropzone/dropzone/releases/download/v6.0.0-beta.2/dist.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -112,8 +124,7 @@
         "drupal/votingapi": "^3.0@beta",
         "drupal/zoom_on_hover": "^1.1",
         "drush/drush": "^13.3",
-        "enyo/dropzone": "^5.9",
-        "drupal/zoom_on_hover": "^1.1"
+        "enyo/dropzone": "^6.0@beta"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -168,6 +179,9 @@
             ]
         },
         "patches": {
+            "drupal/core": {
+                "Log error + visual warning for missing or broken block":"https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch"
+            },
             "drupal/empty_page": {
                 "compatible with drupal 10": "https://www.drupal.org/files/issues/2022-06-15/empty_page.3.0.rector.patch"
             },

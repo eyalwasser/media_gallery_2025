@@ -803,3 +803,11 @@ $config['search_api.server.solr'] = [
       'path' => '/solr/mycore',
   ],
 ];
+
+/**
+ * Gin login and theme settings.
+ */
+$config['gin_login.settings']['logo']['path'] = getenv('LOGIN_LOGO');
+$config['gin_login.settings']['brand_image']['path'] = getenv('LOGIN_BRAND_LOGO');
+// theme settings.
+$config['hdimagebank.settings']['logo']['path'] = getenv('LOGO_URL') ?: 'themes/custom/hdimagebank/images/logo.png';
