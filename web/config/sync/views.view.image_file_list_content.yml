@@ -229,11 +229,11 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Download
+          label: test
           exclude: false
           alter:
-            alter_text: true
-            text: '<a href="{{ field_file }}" type="image/jpeg" download class="btn btn-primary"> Download</a>'
+            alter_text: false
+            text: '<a href="{{ field_file }}" download class="btn btn-primary"> Download</a>'
             make_link: false
             path: ''
             absolute: false
@@ -271,8 +271,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
+          type: file_default
+          settings:
+            use_description_as_link_text: false
           group_column: entity_id
           group_columns: {  }
           group_rows: true

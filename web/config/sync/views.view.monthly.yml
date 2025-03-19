@@ -865,6 +865,20 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No results'
+            format: basic_html
+          tokenize: false
       arguments: {  }
       filters:
         status:
@@ -928,7 +942,7 @@ display:
           plugin_id: date
           operator: between
           value:
-            min: 'now -2 Year'
+            min: 'now -40 days'
             max: now
             value: ''
             type: offset
@@ -968,6 +982,7 @@ display:
         groups:
           1: AND
       defaults:
+        empty: false
         title: false
         exposed_form: false
         fields: false

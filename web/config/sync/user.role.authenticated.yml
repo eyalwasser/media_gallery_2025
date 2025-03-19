@@ -21,4 +21,3 @@ permissions:
   - 'search content'
   - 'use advanced search'
   - 'view field_fivestar'
-  - 'view own field_fivestar'

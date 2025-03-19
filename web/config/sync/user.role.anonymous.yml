@@ -20,4 +20,3 @@ permissions:
   - 'create field_mf_user_type'
   - 'use exclude node title'
   - 'use text format filtered_html'
-  - 'view field_fivestar'

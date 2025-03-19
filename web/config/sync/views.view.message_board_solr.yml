@@ -5,9 +5,14 @@ dependencies:
   config:
     - field.storage.node.body
     - search_api.index.message
+    - user.role.administrator
+    - user.role.authenticated
+    - user.role.mf
+    - user.role.site_manager
   module:
     - search_api
     - text
+    - user
 id: message_board_solr
 label: 'Message board solr'
 module: views
@@ -483,6 +488,13 @@ display:
         options:
           offset: 0
           items_per_page: 4
+      access:
+        type: role
+        options:
+          role:
+            site_manager: site_manager
+            administrator: administrator
+            mf: mf
       filters:
         status:
           id: status
@@ -619,6 +631,7 @@ display:
           separator: ''
           hide_empty: false
       defaults:
+        access: false
         pager: false
         use_more: false
         use_more_always: false
@@ -638,6 +651,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - 'user.node_grants:view'
+        - user.roles
       tags:
         - 'config:search_api.index.message'
         - 'search_api_list:message'
@@ -652,6 +666,11 @@ display:
         options:
           offset: 0
           items_per_page: 4
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       empty:
         area:
           id: area
@@ -698,6 +717,7 @@ display:
           not: false
       defaults:
         empty: false
+        access: false
         pager: false
         arguments: false
       display_description: ''
@@ -710,6 +730,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
+        - user.roles
       tags:
         - 'config:field.storage.node.body'
         - 'config:search_api.index.message'
