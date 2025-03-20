@@ -74,6 +74,7 @@
         "drupal/core-recommended": "^10.4",
         "drupal/ctools": "^4.1",
         "drupal/custom_search": "^1.0@beta",
+        "drupal/dashboard": "^2.0",
         "drupal/dashboards": "^2.1",
         "drupal/date_popup": "^2.0",
         "drupal/devel": "^5.3",
