@@ -8,12 +8,12 @@ dependencies:
     - node.type.image_file
     - node.type.thumb
   module:
-    - download_count
     - field_permissions
     - filter
     - fivestar
     - flag
     - masquerade
+    - menu_per_role
     - node
     - system
     - taxonomy
@@ -24,9 +24,12 @@ is_admin: null
 permissions:
   - 'access content'
   - 'access user profiles'
+  - 'administer menu_per_role'
   - 'administer permissions'
   - 'administer taxonomy'
   - 'administer users'
+  - 'bypass menu_per_role access admin'
+  - 'bypass menu_per_role access front'
   - 'cancel account'
   - 'change own username'
   - 'create documents content'
@@ -76,7 +79,6 @@ permissions:
   - 'unflag local_show_lc'
   - 'unflag show_my_users'
   - 'use text format full_html'
-  - 'view download counts'
   - 'view field_country'
   - 'view field_global'
   - 'view field_image_ref'

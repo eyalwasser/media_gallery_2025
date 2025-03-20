@@ -4,6 +4,9 @@ status: true
 dependencies:
   module:
     - field_permissions
+    - file_download
+    - file_download_counter
+    - fivestar
     - node
     - search
     - search_api
@@ -17,7 +20,10 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access content overview'
+  - 'access file download'
   - 'administer search_api'
+  - 'rate content'
   - 'search content'
   - 'use advanced search'
   - 'view field_fivestar'
+  - 'view file download counter'

@@ -8,6 +8,7 @@
 /web/libraries/
 /web/private:/
 /web/sites/*/private/
+/web/adminer.php
 
 # Ignore sensitive information
 #/web/sites/*/settings.php
@@ -39,3 +40,4 @@
 # Ignore log files
 *.log
 .ddev
+

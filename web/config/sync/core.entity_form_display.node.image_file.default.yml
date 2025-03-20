@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.image_file.field_file
     - field.field.node.image_file.field_fivestar
     - field.field.node.image_file.field_image_ref
+    - field.field.node.image_file.layout_builder__layout
     - node.type.image_file
   module:
     - comment
@@ -105,5 +106,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  layout_builder__layout: true
   publish_on: true
   unpublish_on: true

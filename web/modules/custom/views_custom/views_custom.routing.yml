@@ -1,0 +1,7 @@
+views_custom.download_media:
+  path: '/media-bulk-download'
+  defaults:
+    _controller: '\Drupal\views_custom\Controller\DownloadMediaController::download'
+    _title: 'Download Media ZIP'
+  requirements:
+    _permission: 'access content'

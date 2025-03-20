@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: mv_zxeyh1fioueMzVN4UxTYQqbcwJtWNATAqwGZRHwk
+access_log:
+  enabled: false
+  max_lifetime: 259200
+count_downloads: 1
+display_max_age: 3600
+count_content_views: 0

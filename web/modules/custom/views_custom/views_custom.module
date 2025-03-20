@@ -1,0 +1,44 @@
+<?php
+use Drupal\Core\Access\AccessResult;
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\flag\Entity\Flag;
+use Drupal\flag\FlagServiceInterface;
+
+/**
+ * Checks if the user can access the learning set.
+ */
+function views_custom_can_access_item(AccountInterface $account, Node $node, FlagServiceInterface $flag_service) {
+  // Check if the node has a 'field_learning_sets' field.
+  if (!$node->hasField('field_learning_sets') || $node->get('field_learning_sets')->isEmpty()) {
+    return AccessResult::forbidden();
+  }
+
+  // Load the current user.
+  $user = User::load($account->id());
+
+  if (!$user || !$user->hasField('field_learning_sets') || $user->get('field_learning_sets')->isEmpty()) {
+    return AccessResult::forbidden();
+  }
+
+  // Get Term IDs for User & Node
+  $user_term_ids = array_column($user->get('field_learning_sets')->getValue(), 'target_id');
+  $node_term_ids = array_column($node->get('field_learning_sets')->getValue(), 'target_id');
+  dd($user_term_ids);
+
+  // Check for intersection
+  $common_terms = array_intersect($user_term_ids, $node_term_ids);
+
+  if (empty($common_terms)) {
+    return AccessResult::forbidden();
+  }
+
+  // Check if the user has flagged the node.
+  $flag = $flag_service->getFlagById('show_my_users');
+  if ($flag && $flag_service->isFlagged($flag, $node, $user)) {
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::allowed();
+}

@@ -1,0 +1,8 @@
+uuid: c721282e-69ae-4619-809b-2566c65ca92b
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Image
+revision: false
+description: 'Add image block'

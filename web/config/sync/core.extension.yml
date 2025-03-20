@@ -23,11 +23,10 @@ module:
   ctools_block: 0
   ctools_entity_mask: 0
   ctools_views: 0
-  dashboard: 0
+  dashboards: 0
   date_popup: 0
   datetime: 0
   dblog: 0
-  download_count: 0
   dropzonejs: 0
   dynamic_page_cache: 0
   eca: 0
@@ -60,6 +59,8 @@ module:
   field_permissions: 0
   field_ui: 0
   file: 0
+  file_download: 0
+  file_download_counter: 0
   filter: 0
   filter_perms: 0
   fivestar: 0
@@ -73,6 +74,7 @@ module:
   help: 0
   history: 0
   image: 0
+  imagebank: 0
   imce: 0
   inline_block_title_automatic: 0
   job_scheduler: 0
@@ -91,6 +93,7 @@ module:
   media_bulk_upload: 0
   media_bulk_upload_dropzonejs: 0
   media_library: 0
+  media_library_edit: 0
   media_library_form_element: 0
   menu_link_content: 0
   menu_per_role: 0

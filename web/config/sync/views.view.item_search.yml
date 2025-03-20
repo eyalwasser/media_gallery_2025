@@ -8,6 +8,8 @@ dependencies:
     - image.style.large
     - image.style.thumbnail
     - search_api.index.itemsearch
+    - user.role.administrator
+    - user.role.site_manager
   module:
     - image
     - search_api
@@ -637,9 +639,11 @@ display:
             offset_label: Offset
           quantity: 9
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            site_manager: site_manager
+            administrator: administrator
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -858,7 +862,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:search_api.index.itemsearch'
         - 'search_api_list:itemsearch'
