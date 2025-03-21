@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - size: size of file in standard format
+ * - raw_size: size of file in bytes
+ * - description: $item->description
+ * - title: The value applied to the download link anchor tag
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+{#{{ attach_library('hdimagebank/refreshViewTrigger') }}#}
+<span{{ attributes.addclass('trigger-content-refresh-view') }}>{{ link }}</span>
+{% if size %}
+  <span class="file-download-size">({{ size }})</span>
+{% endif %}

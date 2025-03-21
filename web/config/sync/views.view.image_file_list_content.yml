@@ -90,9 +90,16 @@ display:
           force_selection_info: false
           selected_actions:
             -
-              action_id: bulk_download_media_action
+              action_id: bulk_media_download
               preconfiguration:
                 add_confirmation: false
+                confirm_help_text: ''
+                message_override: ''
+            -
+              action_id: views_bulk_operations_delete_entity
+              preconfiguration:
+                add_confirmation: false
+                confirm_help_text: ''
                 message_override: ''
         filename:
           id: filename

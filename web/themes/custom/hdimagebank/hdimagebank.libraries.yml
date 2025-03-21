@@ -11,3 +11,25 @@ global-styling:
   dependencies:
     - core/jquery
     - core/drupal
+
+refreshViewTrigger:
+  version: VERSION
+  js:
+    js/view/refresh-view.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.once
+
+itemlist-view:
+  js:
+    js/getlist.js: {}
+  # css:
+  #   module:
+  #     css/demo.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - core/drupal.ajax
+    - core/views.ajax    

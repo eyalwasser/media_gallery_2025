@@ -11,8 +11,15 @@ dependencies:
   module:
     - comment
     - datetime
+    - field_layout
+    - layout_discovery
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 id: node.new.default
 targetEntityType: node
 bundle: new

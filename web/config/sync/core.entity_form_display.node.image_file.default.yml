@@ -11,9 +11,16 @@ dependencies:
     - node.type.image_file
   module:
     - comment
+    - field_layout
     - file
     - fivestar
+    - layout_discovery
     - path
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 id: node.image_file.default
 targetEntityType: node
 bundle: image_file

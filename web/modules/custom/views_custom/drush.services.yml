@@ -1,0 +1,5 @@
+services:
+  views_custom.commands:
+    class: \Drupal\views_custom\Commands\ViewsCustomDrushCommands
+    tags:
+      - { name: drush.command }

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - dropzonejs
     - field_permissions
     - file_download
     - file_download_counter
@@ -22,6 +23,7 @@ permissions:
   - 'access content overview'
   - 'access file download'
   - 'administer search_api'
+  - 'dropzone upload files'
   - 'rate content'
   - 'search content'
   - 'use advanced search'

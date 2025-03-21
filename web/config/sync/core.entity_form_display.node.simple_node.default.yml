@@ -9,8 +9,15 @@ dependencies:
     - node.type.simple_node
   module:
     - comment
+    - field_layout
     - file
+    - layout_discovery
     - path
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 id: node.simple_node.default
 targetEntityType: node
 bundle: simple_node

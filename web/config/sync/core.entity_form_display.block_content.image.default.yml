@@ -6,8 +6,15 @@ dependencies:
     - block_content.type.image
     - field.field.block_content.image.field_image
   module:
+    - field_layout
+    - layout_discovery
     - media_library
     - media_library_edit
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 id: block_content.image.default
 targetEntityType: block_content
 bundle: image

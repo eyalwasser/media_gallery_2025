@@ -1,0 +1,12 @@
+imagebank_bulk_upload_media.media_bulk_upload:
+  path: 'admin/imagebank-bulk-upload-media/media-bulk-upload/{node}'
+  defaults:
+    _title: 'Media Bulk Upload'
+    _form: 'Drupal\imagebank_bulk_upload_media\Form\MediaBulkUploadForm'
+  options:
+    parameters:
+      node:
+        type: entity:node
+  requirements:
+    _entity_access: 'node.edit'
+    node: '\d+'

@@ -52,38 +52,57 @@ class DownloadMediaController extends ControllerBase {
    */
   public function download() {
     $tempStore = $this->tempStoreFactory->get('download_media_action');
-    $file_paths = $tempStore->get('file_paths');
-
+    if (!$tempStore->has('file_paths')) {
+        return new Response('TempStore key "file_paths" not found.', Response::HTTP_NOT_FOUND);
+      }
+      
+      $file_paths = $tempStore->get('file_paths');
+  
     if (empty($file_paths)) {
       return new Response('No files available for download.', Response::HTTP_NOT_FOUND);
     }
-
+  
     // Define ZIP file location.
     $zip_filename = 'media_files_' . time() . '.zip';
     $zip_directory = 'private://bulk_downloads/';
     $zip_path = $zip_directory . $zip_filename;
     $this->fileSystem->prepareDirectory($zip_directory, FileSystemInterface::CREATE_DIRECTORY);
-
+    $real_zip_path = $this->fileSystem->realpath($zip_path);
+  
     // Create ZIP archive.
     $zip = new \ZipArchive();
-    $real_zip_path = $this->fileSystem->realpath($zip_path);
-
     if ($zip->open($real_zip_path, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== TRUE) {
       return new Response('Could not create ZIP file.', Response::HTTP_INTERNAL_SERVER_ERROR);
     }
-
+  
     foreach ($file_paths as $file_path) {
       if (file_exists($file_path) && is_readable($file_path)) {
         $zip->addFile($file_path, basename($file_path));
       }
     }
-
+  
     $zip->close();
-
-    // Serve ZIP file as a response.
+  
+    // Ensure ZIP file exists.
+    if (!file_exists($real_zip_path) || !is_readable($real_zip_path)) {
+      return new Response('ZIP file not found or not readable.', Response::HTTP_NOT_FOUND);
+    }
+  
+    \Drupal::logger('views_custom')->notice('ZIP file created at: ' . $real_zip_path);
+  
+    // Serve ZIP file as response.
     $response = new BinaryFileResponse($real_zip_path);
     $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $zip_filename);
+    $response->headers->set('Content-Type', 'application/zip');
+    $response->headers->set('Content-Length', filesize($real_zip_path));
+    $response->headers->set('Cache-Control', 'private, must-revalidate, max-age=0');
+    $response->headers->set('Pragma', 'public');
+  
+    // Optionally clear temp storage.
+    $tempStore->delete('file_paths');
+  
     return $response;
   }
+  
 
 }

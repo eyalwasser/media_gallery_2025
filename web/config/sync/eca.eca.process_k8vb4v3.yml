@@ -37,6 +37,6 @@ actions:
     plugin: action_goto_action
     label: 'Redirect to Bulk Upload'
     configuration:
-      url: 'admin/content/media/bulk_upload?edit[default_values][field_image_ref][und]=[node:nid]'
+      url: '/admin/imagebank-bulk-upload-media/media-bulk-upload/[node:id]'
       replace_tokens: true
     successors: {  }

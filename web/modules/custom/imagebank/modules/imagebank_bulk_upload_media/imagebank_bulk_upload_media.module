@@ -1,0 +1,60 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\views\Views;
+
+  /**
+  * Implements hook_entity_operation().
+  */
+  function imagebank_bulk_upload_media_entity_operation(\Drupal\Core\Entity\EntityInterface $entity) {
+  
+    $operations = [];
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() === 'thumb') {
+        $operations['imagebank_bulk_upload_media'] = [
+            'title' => t('Batch Files Upload'),
+            'url' => \Drupal\Core\Url::fromRoute('imagebank_bulk_upload_media.media_bulk_upload',['node'=>$entity->id()]),
+            'weight' => 50,
+        ];
+    };
+
+    return $operations;
+  }
+
+
+/**
+* Implements hook_form_alter().
+*/
+function imagebank_bulk_upload_media_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == 'node_thumb_edit_form') {
+    $node = $form_state->getFormObject()->getEntity();
+    $form['actions']['imagebank_bulk_upload_media'] = [
+      '#type' => 'link',
+      '#title' => t('Batch Files Upload'),
+      '#url' => \Drupal\Core\Url::fromRoute('imagebank_bulk_upload_media.media_bulk_upload', ['node' => $node->id()]),
+      '#attributes' => [
+        'class' => ['button'],
+      ],
+      "#button_type" => "small",
+    ];
+    $view_id = 'files_linked_to_this_thumb'; // Replace with your view machine name.
+    $display_id = 'panel_pane_1'; // Replace with the view display ID.
+
+    $view = Views::getView($view_id);
+    if ($view) {
+      $view->setDisplay($display_id);
+      $view->preExecute();
+      $view->execute();
+      // dd($view->tota);
+      // Inject the View output inside the form.
+      $form['view_group'] = [
+        '#type' => 'details',
+        '#title' => t('Item files'),
+        "#group" => "advanced"
+      ];
+      $form['view_group']['view'] = $view->buildRenderable($display_id);
+      // dd($form);
+    }
+    // dd($node);
+  }
+}

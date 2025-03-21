@@ -1,0 +1,7 @@
+# Custom library for general purposes.
+node-form:
+  css:
+    component:
+      css/node-edit-form.css: {}
+  dependencies:
+    - core/drupalSettings

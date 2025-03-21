@@ -794,6 +794,16 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = 'config/sync';
 
+$databases['migrate']['default'] = [
+  'database' => 'hdimagebank',
+  'username' => 'root',
+  'password' => 's2K7u93fFAMMjs',
+  'host' => '112.196.0.82',
+  'port' => '3316',
+  'driver' => 'mysql',
+  'prefix' => '',
+];
+
 $config['search_api.server.solr'] = [
   'backend_config' => [
       'connector' => 'standard',

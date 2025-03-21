@@ -81,6 +81,7 @@
         "drupal/download_count": "^2.2",
         "drupal/download_file": "^2.0",
         "drupal/dropzonejs": "^2.11",
+        "drupal/ds": "^3.28",
         "drupal/eca": "^2.1",
         "drupal/element_class_formatter": "^2.1",
         "drupal/entity": "^1.5",
@@ -234,5 +235,9 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "squizlabs/php_codesniffer": "^3.12"
     }
 }

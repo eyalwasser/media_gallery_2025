@@ -6,9 +6,9 @@ name: 'Marketing Gallery'
 mail: MGNewuser@helendoron.com
 slogan: ''
 page:
-  403: /user/login
+  403: ''
   404: ''
-  front: /node/32334
+  front: '/user/login?destination=recent-upload'
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

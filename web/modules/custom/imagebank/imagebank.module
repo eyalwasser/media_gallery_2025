@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+* Implements hook_form_alter().
+*/
+
+function imagebank_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+    if ($form_id == 'node_thumb_edit_form') {
+        $form['#attached']['library'][] = 'imagebank/node-form';
+    }
+    
+}

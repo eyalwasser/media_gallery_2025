@@ -1,0 +1,5 @@
+name: 'Imagebank bulk upload media'
+type: module
+description: 'Create a bulk upload image.'
+package: Custom
+core_version_requirement: ^10 || ^11

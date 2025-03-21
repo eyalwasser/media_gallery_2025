@@ -1,44 +1,66 @@
 <?php
-use Drupal\Core\Access\AccessResult;
-use Drupal\user\Entity\User;
-use Drupal\node\Entity\Node;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\flag\Entity\Flag;
-use Drupal\flag\FlagServiceInterface;
+use Drupal\Core\Database\Database;
 
 /**
- * Checks if the user can access the learning set.
+ * Implements hook_ENTITY_presave().
  */
-function views_custom_can_access_item(AccountInterface $account, Node $node, FlagServiceInterface $flag_service) {
-  // Check if the node has a 'field_learning_sets' field.
-  if (!$node->hasField('field_learning_sets') || $node->get('field_learning_sets')->isEmpty()) {
-    return AccessResult::forbidden();
+
+// function views_custom_file_presave(Drupal\Core\Entity\EntityInterface $entity) {
+//   if ($entity->getEntityTypeId() === 'file') {
+//     $fid = $entity->id();
+ 
+    
+//     if ($fid) {
+//       // Fetch count from secondary database.
+//       $file_count = views_custom_get_file_count_from_secondary_db($fid);
+    
+//       if ($file_count !== NULL) {  
+//         // Update the primary database table.
+//         views_custom_update_file_count($fid, $file_count);
+//       }
+//     }
+//   }
+// }
+
+/**
+ * Fetch file count from the secondary database.
+ */
+function views_custom_get_file_count_from_secondary_db($fid) {
+  try {
+    $database = Database::getConnection('default', 'migrate');    
+    $query = $database->select('download_count', 't')
+      ->condition('fid', $fid)
+      ->countQuery()
+      ->execute();   
+    return (int) $query->fetchField();  
+
   }
-
-  // Load the current user.
-  $user = User::load($account->id());
-
-  if (!$user || !$user->hasField('field_learning_sets') || $user->get('field_learning_sets')->isEmpty()) {
-    return AccessResult::forbidden();
+  catch (Exception $e) {
+    \Drupal::logger('views_custom')->error('Error fetching file count: @message', ['@message' => $e->getMessage()]);
+    return NULL;
   }
-
-  // Get Term IDs for User & Node
-  $user_term_ids = array_column($user->get('field_learning_sets')->getValue(), 'target_id');
-  $node_term_ids = array_column($node->get('field_learning_sets')->getValue(), 'target_id');
-  dd($user_term_ids);
-
-  // Check for intersection
-  $common_terms = array_intersect($user_term_ids, $node_term_ids);
-
-  if (empty($common_terms)) {
-    return AccessResult::forbidden();
-  }
-
-  // Check if the user has flagged the node.
-  $flag = $flag_service->getFlagById('show_my_users');
-  if ($flag && $flag_service->isFlagged($flag, $node, $user)) {
-    return AccessResult::forbidden();
-  }
-
-  return AccessResult::allowed();
 }
+function views_custom_update_file_count($fid, $file_count) {
+  if ($file_count === 0) {
+    // \Drupal::logger('views_custom')->notice("Skipping file ID $fid as count is zero.");
+    return; // Skip this entry but continue processing others
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('file_download_counter')) {
+    $count_downloads = \Drupal::config('file_download_counter.settings')->get('count_downloads');
+    if ($count_downloads) {
+      \Drupal::database()->merge('file_download_counter')
+        ->key('fid', $fid)
+        ->fields([
+          'daycount' => 1,
+          'totalcount' => $file_count,
+          'timestamp' => \Drupal::time()->getRequestTime(),
+        ])
+        ->expression('daycount', 'daycount + 1')
+        ->expression('totalcount', 'totalcount + ' . $file_count)
+        ->execute();
+    }
+  }
+}
+
+

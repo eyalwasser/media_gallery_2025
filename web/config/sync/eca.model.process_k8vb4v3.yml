@@ -33,7 +33,7 @@ modeldata: |
             <camunda:property name="pluginid" value="action_goto_action" />
           </camunda:properties>
           <camunda:field name="url">
-            <camunda:string>admin/content/media/bulk_upload?edit[default_values][field_image_ref][und]=[node:nid]</camunda:string>
+            <camunda:string>/admin/imagebank-bulk-upload-media/media-bulk-upload/[node:id]</camunda:string>
           </camunda:field>
           <camunda:field name="replace_tokens">
             <camunda:string>yes</camunda:string>

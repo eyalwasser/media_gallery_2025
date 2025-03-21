@@ -8,8 +8,15 @@ dependencies:
     - node.type.node_id
   module:
     - comment
+    - field_layout
+    - layout_discovery
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 id: node.node_id.default
 targetEntityType: node
 bundle: node_id
